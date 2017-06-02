@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SMSystemw3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="district">
+    <Key>
+      <PropertyRef Name="district_id" />
+    </Key>
+    <Property Name="district_id" Type="Int32" Nullable="false" />
+    <Property Name="district_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="SMSystemConsettings" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="districts" EntityType="Self.district" />
+    <EntitySet Name="news" EntityType="SMSystemw3Model.news" />
+    <EntitySet Name="sport_event" EntityType="SMSystemw3Model.sport_event" />
+    <EntitySet Name="attendances" EntityType="SMSystemw3Model.attendance" />
+    <EntitySet Name="follows" EntityType="SMSystemw3Model.follow" />
+    <EntitySet Name="payments" EntityType="SMSystemw3Model.payment" />
+    <EntitySet Name="subjects" EntityType="SMSystemw3Model.subject" />
+    <EntitySet Name="Logins" EntityType="SMSystemw3Model.Login" />
+    <EntitySet Name="donators" EntityType="SMSystemw3Model.donator" />
+    <EntitySet Name="reqservices" EntityType="SMSystemw3Model.reqservice" />
+    <EntitySet Name="reqItems" EntityType="SMSystemw3Model.reqItem" />
+    <EntitySet Name="schools" EntityType="SMSystemw3Model.school" />
+    <EntitySet Name="Principles" EntityType="SMSystemw3Model.Principle" />
+    <EntitySet Name="students" EntityType="SMSystemw3Model.student" />
+    <EntitySet Name="teachers" EntityType="SMSystemw3Model.teacher" />
+  </EntityContainer>
+  <EntityType Name="news">
+    <Key>
+      <PropertyRef Name="n_id" />
+    </Key>
+    <Property Name="n_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="n_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="t_id" Type="Int32" Nullable="false" />
+    <Property Name="st_id" Type="Int32" Nullable="false" />
+    <Property Name="headiline" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="discription" Type="String" Nullable="false" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="isConfirm" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="st_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sport_event">
+    <Key>
+      <PropertyRef Name="sportId" />
+    </Key>
+    <Property Name="sportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sp_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="sp_event" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="place" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="recode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ranks" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="sp_description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="attendance">
+    <Key>
+      <PropertyRef Name="st_id" />
+      <PropertyRef Name="date" />
+    </Key>
+    <Property Name="st_id" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="state" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="follow">
+    <Key>
+      <PropertyRef Name="st_id" />
+      <PropertyRef Name="sub_id" />
+    </Key>
+    <Property Name="st_id" Type="Int32" Nullable="false" />
+    <Property Name="sub_id" Type="Int32" Nullable="false" />
+    <Property Name="sub_marks" Type="Int32" Nullable="false" />
+    <Property Name="Grade" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="pay_id" />
+    </Key>
+    <Property Name="pay_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="st_id" Type="Int32" Nullable="false" />
+    <Property Name="grade" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="statement" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="year" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="subject">
+    <Key>
+      <PropertyRef Name="sub_id" />
+    </Key>
+    <Property Name="sub_id" Type="Int32" Nullable="false" />
+    <Property Name="sub_name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="donator">
+    <Key>
+      <PropertyRef Name="d_id" />
+    </Key>
+    <Property Name="d_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="d_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="d_company" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="reqservice">
+    <Key>
+      <PropertyRef Name="r_id" />
+    </Key>
+    <Property Name="r_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="st_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ser_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="isconfirm" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="reqItem">
+    <Key>
+      <PropertyRef Name="r_id" />
+    </Key>
+    <Property Name="r_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="st_id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="quantity" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="iscomfirm" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="school">
+    <Key>
+      <PropertyRef Name="school_id" />
+    </Key>
+    <Property Name="school_id" Type="Int32" Nullable="false" />
+    <Property Name="school_name" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="school_tp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="zone_id" Type="Int32" Nullable="false" />
+    <Property Name="pNic" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="pName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Principle">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="P_Nic" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="fname" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="lname" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="str_year" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="school_Id" Type="Int32" />
+    <Property Name="school" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="stid" />
+    </Key>
+    <Property Name="stid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="st_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="st_address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="st_gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="st_bdy" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="st_year" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="t_id" Type="Int32" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="tid" />
+    </Key>
+    <Property Name="tid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tfname" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="tlname" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="gender" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="p_Id" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

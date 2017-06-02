@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "checkLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script language="javascript" type="text/javascript">
+
+
+        window.onload = function () {
+            document.getElementById('submit').onclick = function () {
+                //alert('hello!');
+
+
+
+
+
+                var x = 'http://localhost:56412/api/Logins1/loginDetail';
+                var dataJSON = {
+                    "email": $('#email').val(),
+                    "password": $('#password').val()
+                };
+                //alert('hello! 1');
+
+                $.ajax({
+                    url: x,
+                    type: 'POST',
+                    data: JSON.stringify(dataJSON),
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+
+                    success: function (data) {
+                        localStorage.setItem("user", JSON.stringify(data));
+                       console.log(data);
+                       var email = data[0].email;
+                    //   var fname = data[1].fname;
+                    
+                        //var role = data.type;
+                      // alert(id);
+                       //alert(fname);
+                        //alert(data);
+                        if (data[0].type == "principle")
+                        {
+                            alert("success");
+                            window.location = "http://localhost:56448/Principal/Index";
+                        } else if (data[0].type == "teacher") {
+                            window.location = "http://localhost:56448/Teacher/Index";
+                        } else if (data[0].type == "student") {
+                            window.location = "http://localhost:56448/Student/Index";
+                        }
+                        else
+                            alert(data[0].error);
+                    },
+                    error: function () {
+                        alert("error");
+                    }
+                });
+          };
+    }
+</script>
+
+<body>
+   
+        <div class="wrapper login-wrapper">
+
+            <div class="post">
+                <div class="post-header">
+                    <h2>Sign in</h2>
+                </div>
+                <!-- .post-header -->
+                  <form class="login-form clearfix">
+                <input id="email" name="email" type="email" placeholder="Email" />
+                <input id="password" name="password" type="password" placeholder="password" />
+                <!--     <a href="reset_password.html">Forgot Password?</a>  -->
+
+                <a href="#" class="myButton" id="submit" type="submit">submit</a>
+                </form>
+
+                <div class="post-footer">
+                    <p>
+                        <b>Is this your first time here?</b> <br>
+                        Login to the system with the user name and password provided by the course director
+                    </p>
+                </div>
+                <!-- .post-footer -->
+            </div>
+            <!-- .post -->
+        </div>
+        <!-- .wrapper -->
+   
+</body>

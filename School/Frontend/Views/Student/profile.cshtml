@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<!--<![endif]-->
+<body>
+
+    <script language="javascript" type="text/javascript">
+
+        window.onload = function () {
+
+
+            var y = "@ViewBag.detailsid";
+
+            var x = 'http://localhost:56412/api/students/'+y;
+
+
+
+                $.ajax({
+                    url: x,
+                    type: 'GET',
+
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+
+                    success: function (data) {
+
+                        console.log(data);
+                        document.getElementById('name').innerHTML = data.st_name;
+                        document.getElementById('sid').innerHTML = data.st_id;
+                        document.getElementById('year').innerHTML = data.st_year;
+                        document.getElementById('gender').innerHTML = data.st_gender;
+                        document.getElementById('bdy').innerHTML = data.st_bdy;
+                        document.getElementById('address').innerHTML = data.st_address;
+
+                    },
+                    error: function () {
+                        alert("error");
+                    }
+                });
+
+
+
+        }
+
+
+    </script>
+
+    <div class="wrapper company-profile">
+        <!-- header -->
+        <div class="main clearfix">
+            <img class="opening-header no-image" src="immages/opening-header.html" alt="" />
+            <div class="content">
+                <div class="post about">
+                    <div class="post-header">
+                        <h2>My Profile</h2>
+                        <a class="edit-link" href="company_profile_settings.html"></a><a class="company-openings" href="opening.html"></a>
+                    </div>
+                    <!-- .post-header -->
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <td><textarea id="name" name="name" placeholder="Student Name" style="float:right; width:500px; height:20px"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th>Index Number</th>
+                            <td><textarea id="sid" name="sid" placeholder="Index Number" style="float:right; width:500px; height:20px"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th>Grade</th>
+                            <td><textarea id="year" name="year" placeholder="Grade" style="float:right; width:500px; height:20px"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th>Gender</th>
+                            <td><textarea id="gender" name="gender" placeholder="Gender" style="float:right; width:500px; height:20px"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th>Birth Day</th>
+                            <td><textarea id="bdy" name="bdy" placeholder="Birth Day" style="float:right; width:500px; height:20px"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <td><textarea id="address" name="address" placeholder="Address" style="float:right; width:500px; height:20px"></textarea></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <aside class="sidebar">
+
+                <!-- .add-openings -->
+                <div class="widget">
+                    <h3>Note</h3>
+                    <p>You can only request one item in once. If your request is not confirm by your class teacher, it is rejected.</p>
+                </div>
+                <!-- text widget -->
+            </aside>
+        </div>
+        <!-- .post about -->
+        <!-- .main -->
+        <!-- footer -->
+    </div>
+    <!-- .wrapper -->
+</body>
+</html>
+
+

@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "subcode";
+}
+
+
+
+<script language="javascript" type="text/javascript">
+
+       
+
+
+
+
+    window.onload = function () {
+        document.getElementById('submit').onclick = function () {
+            // alert('hello!');
+
+
+            var x = 'http://localhost:56412/api/subjects';
+            var dataJSON = {
+                "sub_id": $('#sub_id').val(),
+                "sub_name": $('#sub_name').val(),
+                
+            };
+
+            $.ajax({
+                url: x,
+                type: 'POST',
+                data: JSON.stringify(dataJSON),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+
+                    console.log(data);
+                    alert("sucess");
+
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
+    }
+
+
+</script>
+
+
+<body>
+    <form style="height:600px">
+        <div class="wrapper user-profile">
+
+
+            <div class="main clearfix">
+                <div class="content">
+                   
+                        <div class="post edit-company">
+                            <div class="post-header">
+                                <h2>Add Subjects</h2>
+                                <a class="edit-link" href="user_profile_settings.html"></a><a class="company-openings" href="#"></a>
+                            </div>
+
+                            <ul>
+
+
+                                <li class="settings-field">
+                                    <img class="user-avatar" src="~/Content/images/8.jpg" width="50" height="50" alt="" />
+                                    <input id="sub_id" name="sub_id" required placeholder="Subject Number" type="text" />
+                                    <input id="sub_name" name="sub_name" required placeholder="Subject Name" type="text" />
+                                    <br><br><br>
+
+                            </ul>
+                        </div>
+
+                        <a href="#" class="myButton" id="submit">Submit</a>
+                    
+
+                </div>
+
+                <aside class="sidebar">
+                    <br /><br /><br /><br /><br /><br />
+
+
+                    <div class="widget">
+                        <h3>Note</h3>
+                        <p>Add subject codes and subject names. It's easy for everyone</p>
+                    </div>
+                   
+                    <a href="~/reportave/WebForm1.aspx">Report</a>
+                </aside>
+               
+            </div>
+
+
+        </div>
+    </form>
+</body>
+
+

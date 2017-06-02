@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "studentprom";
+}
+
+
+<script language="javascript" type="text/javascript">
+    var w;
+    var y = "@ViewBag.detailsid"
+    window.onload = function () {
+      
+        var JObject = JSON.parse(localStorage.getItem("user"));
+        if (JObject != undefined) {
+             w = JObject[1].stid;
+            
+        }
+        
+            var x = 'http://localhost:56412/api/follows' ;
+
+
+            $.ajax({
+                url: x,
+                type: 'GET',
+
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+
+                    console.log(data);
+                   loop(data)
+
+
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
+    
+        function loop(x) {
+            for (var a = 0; a < x.length; a++) {
+                if(x[a].st_id == w )
+                document.getElementById('row').innerHTML += '<tr><td><div id="sub_id">' + x[a].sub_id + '</div></td> <td><div id="sub_marks">' + x[a].sub_marks;
+
+
+            }
+        }
+   
+        document.getElementById('submit').onclick = function () {
+          
+
+        }
+
+    
+</script>
+
+
+
+
+<body>
+    <form style="height:610px">
+        <div class="wrapper company-profile">
+
+            <!-- header -->
+            <div class="main clearfix">
+                <div class="content">
+                    <div class="post about">
+                        <div class="post-header">
+                            <h2>Mark sheet</h2>
+                            <br><br>
+
+
+                            <a class="edit-link" href="company_profile_settings.html"></a><a class="company-openings" href="opening.html"></a>
+                        </div>
+                        <!-- .post-header -->
+
+
+
+                        <table>
+                            <tr>
+                                <th>Subject name</th>
+                                <th>Marks</th>
+
+                            </tr>
+
+                            <tbody id="row"></tbody>
+                            ;
+                        </table>
+
+
+                    </div>
+                </div>
+                <aside class="sidebar">
+                    <br /><br /><br /><br /><br /><br />
+                    <!-- .add-openings -->
+                    <div class="widget">
+                        <h3>Note</h3>
+                        <p>You can only request one item in once. If your request is not confirm by your class teacher, it is rejected.</p>
+                    </div>
+                    <a href="~/Reportsub/WebForm1.aspx" input type="submit" class="myButton" id="submit">Get result</a>
+                    <!--  <a href="~/Report/WebForm1.aspx">get report </a>  -->
+                    <!-- text widget -->
+                </aside>
+            </div>
+            <!-- .post about -->
+            <!-- .main -->
+            <!-- footer -->
+        </div>
+        <!-- .wrapper -->
+    </form>
+</body>
+
+

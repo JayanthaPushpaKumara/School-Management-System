@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "Index_reqService";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+
+    <script language="javascript" type="text/javascript">
+
+
+
+
+
+        window.onload = function () {
+            document.getElementById('submit').onclick = function () {
+              
+
+
+
+
+                var x = 'http://localhost:56412/api/reqService';
+                var dataJSON = {
+                    "st_id": $('#st_id').val(),
+                    "name": $('input[name=name]:checked').val(),
+                    "ser_date": $('#ser_date').val(),
+                    "description": $('#Discription').val(),
+                    "isconfirm": $('#isconfirm').val(),
+                };
+
+                $.ajax({
+                    url: x,
+                    type: 'POST',
+                    data: JSON.stringify(dataJSON),
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+
+                    success: function (data) {
+
+                        console.log(data);
+                        location.reload();
+                        //alert("sucess");
+
+                    },
+                    error: function () {
+                       // alert("error");
+                    }
+                });
+            }
+        }
+
+
+    </script>
+
+
+    <div class="wrapper user-profile">
+
+        <div class="main clearfix">
+            <div class="content">
+
+                <div class="post edit-company">
+                    <div class="post-header">
+                        <h2>Requirements</h2>
+                        &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp
+                        &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp
+                        &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp
+                        &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp
+                        &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp
+                        <input id="ser_date" name="ser_date" type="date" />
+                    </div>
+
+                    <ul>
+                        <li class="settings-field">
+                            <img class="user-avatar" src="~/Content/images/9.jpg" width="50" height="50" alt="" />
+                            <input id="st_id" name="st_id" required placeholder="Index number" type="text" />
+                            <br><br><br><br /><br />
+                        </li>
+                        <li class="settings-field">
+                            <div id="contacts">
+
+                                &nbsp  &nbsp  &nbsp  &nbsp <input type="radio" id="name" name="name" value="schoolarship">schoolarship <br /><br />
+                                &nbsp  &nbsp  &nbsp  &nbsp <input type="radio" id="name" name="name" value="other"> other
+
+                            </div>
+                        </li>
+
+                        <li class="settings-field">
+                            <input id="Discription" name="Discription" required placeholder="Discription" type="text" />
+                            <input id="isconfirm" name="isconfirm" value="No" type="hidden" />
+                        </li>
+
+                    </ul>
+                </div>
+
+                <a href="#" class="myButton" id="submit">Submit</a>
+
+            </div>
+
+            <aside class="sidebar">
+
+                <br /><br /><br /><br /><br /><br />
+                <div class="widget">
+                    <h3>Note</h3>
+                    <p>
+                        You can only request one service in once. If your request is not confirm by your class teacher,
+                        it is rejected.
+                    </p>
+                </div>
+            </aside>
+        </div>
+
+    </div>
+</body>

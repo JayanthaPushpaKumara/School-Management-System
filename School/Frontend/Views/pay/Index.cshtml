@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<script language="javascript" type="text/javascript">
+
+
+
+
+
+    window.onload = function () {
+        document.getElementById('submit').onclick = function () {
+            // alert('hello!');
+
+
+
+
+
+            var x = 'http://localhost:56412/api/payments1';
+            var dataJSON = {
+                "st_id": $('#st_id').val(),
+                "year": $('#year').val(),
+                "grade": $('#grade').val(),
+                "amount": $('#Amount').val(),
+                "statement": $('#state').val(),
+                "description": $('#description').val(),
+            };
+
+            $.ajax({
+                url: x,
+                type: 'POST',
+                data: JSON.stringify(dataJSON),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+
+                    console.log(data);
+                    // alert("sucess");
+                    location.reload();
+
+                },
+                error: function () {
+                  //  alert("error");
+                }
+            });
+        }
+    }
+
+
+</script>
+<body>
+    <form style="height:610px">
+    <div class="wrapper user-profile">
+        <div class="main clearfix">
+            <div class="content">
+
+                <div class="post edit-company">
+                    <div class="post-header">
+                        <h2>Set payment of student</h2>
+                        &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp
+                        &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp
+                        &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp
+                        &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp
+                        &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp     &nbsp  &nbsp  &nbsp  &nbsp
+                        <input id="year" name="year" required type="date" placeholder="Year" />
+                    </div>
+
+                    <ul>
+                        <li class="settings-field">
+                            <img class="user-avatar" src="~/Content/images/6.jpg" width="50" height="50" alt="" />
+                            <input id="st_id" name="st_id" required placeholder="Index Number" type="text" />
+                            <div id="contacts">
+                                <input id="grade" name="grade" required type="text" placeholder="Grade" />
+                                <input id="Amount" name="Amount" required type="text" placeholder="Amount" />
+                            </div>
+                        </li>
+
+                        <li class="settings-field">
+                            <div id="contacts">
+
+                                &nbsp  &nbsp  &nbsp  &nbsp
+                                <input type="radio" id="state" name="state" value="Pay">Pay  &nbsp  &nbsp
+                                <input type="radio" id="state" name="state" value="Not Pay"> Not Pay
+                            </div>
+                        </li>
+
+                        <li class="settings-field">
+                            <input id="description" name="Discription" required placeholder="Discription" type="text" />
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="#" class="myButton" id="submit">Submit</a>
+            </div>
+
+            <aside class="sidebar">
+                <br /><br /><br /><br /><br /><br />
+
+                <div class="widget">
+                    <h3>Note</h3>
+                    <p>Please do confirmation process after collect payment as soon as possible.</p>
+                </div>
+             
+            </aside>
+
+        </div>
+
+    </div>
+    </form>
+</body>

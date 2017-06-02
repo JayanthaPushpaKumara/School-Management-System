@@ -1,0 +1,175 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Bootstrap/js/jquery.js"></script>
+<script src="~/Bootstrap/js/jquery.validate.js"></script>
+<script language="javascript" type="text/javascript">
+
+    window.onload = function () {
+        $.validator.setDefaults({
+            submitHandler: function () {
+
+        document.getElementById('submit').onclick = function () {
+            //alert('hello! 1');
+
+            var x = 'http://localhost:56412/api/students';
+            var dataJSON = {
+                "st_name": $('#fname').val(),
+                "st_address": $('#address').val(),
+                "email": $('#email').val(),
+                "st_bdy": $('#bdy').val(),                
+                "t_id": $('#tid').val(),
+                "st_year": $('#year').val(),
+                "st_gender": $('input[name=gender]:checked').val()
+            };
+            //alert('hello! 2');
+            $.ajax({
+
+                url: x,
+                type: 'POST',
+                data: JSON.stringify(dataJSON),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+                    alert("sucess");
+                },
+                error: function () {
+                    alert('error student');
+                }
+            });
+
+            var y = 'http://localhost:56412/api/Logins';
+            var dataJSON = {
+                "email": $('#email').val(),
+                "password": $('#new_password').val(),
+                "type": $('#role').val()
+            };
+            //  alert('hello!');
+            $.ajax({
+
+                url: y,
+                type: 'POST',
+                data: JSON.stringify(dataJSON),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+
+                    console.log(data);
+                    alert("sucess");
+                    window.location = "http://localhost:56448/Student/Index";
+                    
+                },
+                error: function () {
+                    alert('error');                   
+                }
+            });
+        }
+
+        
+                alert("submitted!");
+            }
+        });
+
+        $().ready(function () {
+            $("#signupForm").validate({
+                rules: {
+                    fname: "required",
+                    address: "required",
+                    new_password: {
+                        required: true,
+                        minlength: 5,
+                        maxlength: 8
+                    },
+                    new_password2: {
+                        required: true,
+                        minlength: 5,
+                        equalTo: "#new_password"
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    bdy: "required",                     
+                    tid: "required",
+                    year: {
+                        required: true,
+                        minlength: 4,
+                        maxlength: 4,
+                    },
+                    gender: "required",
+                },
+                messages: {
+                    fname: "Please enter your firstname",
+                    address: "Please enter your Adress",
+                    password: {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 5 characters long"
+                    },
+                    confirm_password: {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 5 characters long",
+                        equalTo: "Please enter the same password as above"
+                    },
+                    email: "Please enter a valid email address",
+                    bdy: "Please enter your birthday",
+                    tid: "Please enter your teacher ID",
+                    year: "Please enter your  year",
+                    gender: "select your gender",
+                }
+            });
+        });
+    };
+
+
+
+</script>
+<body >
+    <div class="wrapper login-wrapper">
+        <div class="post">
+            <div class="post-header">
+                <h2>Student Sign up</h2>
+            </div>
+            <!-- .post-header -->
+            <form class="login-form clearfix" id="signupForm" method="post" action="">
+
+                <input id="fname" name="fname" type="text" placeholder="Full Name" />
+                <input id="address" name="address" type="text" placeholder="Address" />
+                <input id="email" name="email" type="email" placeholder="email address" />
+                <input id="bdy" name="bdy" type="date" placeholder="mm/dd/yy" />
+                <input id="role" name="role" type="hidden" value="student" />                
+                <input id="tid" name="tid" type="text" placeholder="Teacher Id" />
+                <input id="year" name="year" type="text" placeholder="Started Year " />
+                <input id="new_password" name="new_password" type="password" placeholder="New Password" />
+                <input type="password" name="new_password2" id="new_password2" placeholder="Confirm your Password" />
+                         
+
+                <input type="radio" id="gender" name="gender" value="male">Male
+
+                <input type="radio" id="gender" name="gender" value="female">Female
+                <br>
+                <label>
+                    <input name="accept" type="checkbox" class="dark" />
+                    By clicking Create an account, you agree to our Terms and confirm that you have read our Data Policy, including our Cookie Use Policy.
+                </label>
+                <input type="submit" value="Creat" />
+
+                <div id="submit">
+                    <button type="submit" id="submit">submit</button>  
+                </div>
+                <div class="clear"></div>
+            </form>
+            <!-- .login-form -->
+            <div class="post-footer">
+                
+            </div>
+            <!-- .post-footer -->
+        </div>
+        <!-- .post -->
+    </div>
+    <!-- .wrapper -->
+</body>
+

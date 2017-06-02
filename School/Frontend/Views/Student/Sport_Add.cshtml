@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "Add_Sport";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<script language="javascript" type="text/javascript">
+
+        window.onload = function () {
+            document.getElementById('submit').onclick = function () {
+               // alert('hello!');
+
+                var x = 'http://localhost:56412/api/sport_event';
+                var dataJSON = {
+                    "sp_name": $('#sportname').val(),
+                    "sp_event": $('#event').val(),
+                    "place": $('#place').val(),
+                    "recode": $('#recode').val(),
+                    "ranks": $('#rank').val(),
+                    "sp_description": $('#description').val()
+                };
+
+                $.ajax({
+                    url: x,
+                    type: 'POST',
+                    data: JSON.stringify(dataJSON),
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+
+                    success: function (data) {
+
+                        console.log(data);
+
+                        window.location = "http://localhost:56448/Student/Sport_view/2";
+
+                    },
+                    error: function () {
+                        alert("error");
+                    }
+                });
+
+            };
+
+        }
+
+</script>
+
+
+
+
+<div class="header-nav1">
+    <div class="wrap">
+
+        <div class="search-bar">
+            
+        </div>
+    </div>
+
+    <!-- End-Header-->
+    <div class="clear"> </div>
+    <!-- content-gallery-->
+</div>
+<div class="wrap">
+    <div style="border:none;" class="about">
+
+        <div class="contact-form">
+            <h4>ADD NEW SPORT DEATAILS</h4>
+            <form>                
+                <div>
+                    <span><label>sportname</label></span>
+                    <span><input id="sportname" type="text" required/></span>
+                </div>
+                <div>
+                    <span><label>event</label></span>
+                    <span><input id="event" type="text" required/></span>
+                </div>
+                <div>
+                    <span><label>place </label></span>
+                    <span><input id="place" type="text" required/></span>
+                </div>
+                <div>
+                    <span><label>recode</label></span>
+                    <span><input id="recode" type="text" required/></span>
+                </div>
+                <div>
+                    <span><label>rank</label></span>
+                    <span><input id="rank" type="text" required/></span>
+                </div>
+                <div>
+                    <span><label>description </label></span>
+                    <span><textarea id="description"> </textarea></span>
+                </div>
+                
+
+                <div >
+                    <!--<a href="#" class="myButton" id="submit">Submitaaa</a>  
+                    <span><input  id="submit" type="submit" value="Submit"></span>-->
+
+                    <input type="button" class="btn btn-warning" value="Save" id="submit" />
+                    
+                </div>
+            </form>
+
+        </div>
+
+        <!-- DC Pagination:C9 End -->
+    </div>
+</div>
+
+<div class="clear"> </div>
+<!-- End-content-gallery-->
+<!-- DC Pagination:C9 Start -->
+<div class="wrap">
+
+</div><br><br>
+
+
+

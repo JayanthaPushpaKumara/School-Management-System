@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "teaclog";
+}
+
+<script language="javascript" type="text/javascript">
+
+    window.onload = function () {
+
+
+        var x = 'http://localhost:56412/api/payments1';
+
+
+        $.ajax({
+            url: x,
+            type: 'GET',
+
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+
+            success: function (data) {
+
+                console.log(data);
+                loop(data)
+
+
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+    }
+
+    function loop(x) {
+        for (var a = 0; a < x.length; a++) {
+            if (x[a].statement=='Not Pay')
+                document.getElementById('row').innerHTML += '<tr><td><div id="st_id">' + x[a].st_id + '</div></td> <td><div id="amount">' + x[a].amount;
+
+
+        }
+    }
+
+
+</script>
+
+<body>
+    <form style="height:610px">
+        <div class="wrapper company-profile">
+
+
+            <div class="main clearfix">
+
+                <div class="content">
+                    <div class="post about">
+                        <div class="post-header">
+                            <h2>List of students did not pay</h2>
+
+                        </div>
+
+                        <table>
+
+
+                            <tr>
+                                <th>Index Number</th>
+                                <th>Amount</th>
+                            </tr>
+
+
+
+
+                            <tbody id="row"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+        </div>
+    </form>
+</body>
+

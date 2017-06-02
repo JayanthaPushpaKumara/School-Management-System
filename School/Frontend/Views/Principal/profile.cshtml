@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<body>
+    <script language="javascript" type="text/javascript">
+        var w;
+        window.onload = function () {
+            var JObject = JSON.parse(localStorage.getItem("user"));
+            if (JObject != undefined) {
+                w = JObject[1].pid;
+            }
+
+
+            var y = "@ViewBag.detailsid";
+
+            var x = 'http://localhost:56412/api/Principles/' + w;
+
+            alert(x);
+
+            $.ajax({
+                url: x,
+                type: 'GET',
+
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+
+                    console.log(data);
+
+
+                    document.getElementById('fname').innerHTML = data.fname;
+                    document.getElementById('lname').innerHTML = data.lname;
+                    document.getElementById('nic').innerHTML = data.P_Nic;
+                    document.getElementById('gender').innerHTML = data.gender;
+                    document.getElementById('email').innerHTML = data.email;
+                    document.getElementById('school').innerHTML = data.school;
+                    document.getElementById('str_year').innerHTML = data.str_year;
+                },
+                error: function () {
+
+                }
+            });
+
+
+
+        }
+
+    </script>
+
+
+    <div class="wrapper company-profile">
+
+
+        <div class="main clearfix">
+
+            <div class="content">
+                <div class="post about">
+                    <div class="post-header">
+                        <h2>My Profile</h2>
+
+                    </div>
+
+                    <table>
+                        <tr>
+                            <th>First Name</th>
+                            <td><textarea id="fname" name="fname" style="float:right; width:300px; height:30px; background-color:#B7DBFF; font-size:16px;"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th>Last Name</th>
+                            <td><textarea id="lname" name="lname" style="float:right; width:300px; height:30px; background-color:#B7DBFF; font-size:16px;"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th>ID</th>
+                            <td><textarea id="nic" name="nic" style="float:right; width:300px; height:30px; background-color:#B7DBFF; font-size:16px;"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th>Gender</th>
+                            <td><textarea id="gender" name="gender" style="float:right; width:300px; height:30px; background-color:#B7DBFF; font-size:16px;"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th>E-mail</th>
+                            <td><textarea id="email" name="email" style="float:right; width:300px; height:30px; background-color:#B7DBFF; font-size:16px;"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th>School</th>
+                            <td><textarea id="school" name="school" style="float:right; width:300px; height:30px; background-color:#B7DBFF; font-size:16px;"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th>Stared year</th>
+                            <td><textarea id="str_year" name="str_year" style="float:right; width:300px; height:30px; background-color:#B7DBFF; font-size:16px;"></textarea></td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>

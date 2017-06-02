@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "News_Delete";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<h1>news delete</h1>
+<body>
+
+    <script language="javascript" type="text/javascript">
+
+        window.onload = function () {
+
+            document.getElementById('submit').onclick = function () {
+
+                {
+                    var y = "@ViewBag.detailsid";
+
+                    var x = 'http://localhost:56412/api/news/Delnews/' + y;
+
+                   // alert(x);
+
+                    $.ajax({
+                        url: x,
+                        type: 'GET',
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+
+                        success: function (data) {
+
+                            console.log(data);
+
+
+                            (function () {
+                                history.go(-1);return true;
+
+                            })();
+                        },
+
+                        error: function () {
+
+
+                        }
+                    });
+                }
+            }
+        }
+
+    </script>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header"></h1>
+
+        </div>
+    </div>
+
+
+    <h2>Are you sure delete this data.. ??</h2>
+
+    <button type="button" class="btn btn-success" id="submit">Delete</button>
+
+    <input type="button" class="btn btn-info" value="Cancel" onClick="history.go(-1);return true;" />
+
+</body>

@@ -1,0 +1,162 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="~/Styles/style_news.css" rel="stylesheet" />
+
+    <!-- jQuery -->
+    <script src="~/Scripts/MIFjquery.js"></script>
+
+    <script language="javascript" type="text/javascript">
+
+
+        window.onload = function () {
+
+            var x = 'http://localhost:56412/api/news';
+
+           
+
+                jQuery.ajax({
+                url: x,
+                type: 'GET',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+
+                    // alert(data.length);
+                    console.log(data);
+                    data.reverse();
+                    loop(data);
+
+
+
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+
+        }
+
+
+
+        function loop(x) {
+
+            for (var a = 0; a < x.length; a++) {
+
+                if (x[a].isConfirm == 'yes' &&  x[a].st_id != 10 ){
+                    document.getElementById('cont').innerHTML += '<div class="blog-img"> <img src="/Content/images/15.jpg" title="img6" />  </div> <div class="bloger-content">  <h5><a href="single.html">' + x[a].headiline + '</a></h5>     <p>' + x[a].discription + '</p> <ul> <li><a href="#">Lorem ipsum</a></li>  <li><a href="#">: 23-02-1989</a></li>   <li><a href="single.html"><span>Readmore</span></a></li> </ul> </div>   <div class="clear"> </div>';
+
+                }
+                if (x[a].st_id == 10) {
+
+                    var id = x[a].n_id;
+                    document.getElementById('cont').innerHTML += '<div class="blog-img"> <img src="/Content/images/15.jpg" title="img6" />  </div> <div class="bloger-content">  <h5><a href="single.html">' + x[a].headiline + '</a></h5>     <p>' + x[a].discription + '</p> <ul> <li><a href="#">Lorem ipsum</a></li>  <li><a href="#">: 23-02-1989</a></li>   <li><a href="single.html"><span>Readmore</span></a> <hr/> <a href="http://localhost:56448/Student/News_Edit/' + id + '"><span>Edit</span></a> <hr/> <a href="http://localhost:56448/Student/News_Delete/' + id + '"><span>Delete</span></a> </li> </ul> </div>   <div class="clear"> </div>';
+                    
+                }
+
+            }
+        }
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+
+
+    <div class="header-nav1">
+        <div class="wrap">
+            <div class="search-bar">
+                <ul>
+                    <li><input type="text"></li>
+                    <li><input type="submit" value="" /></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- End-Header-->
+        <div class="clear"> </div>
+        <!-- content-gallery-->
+    </div>
+    <div class="wrap">
+        <div class="about">
+            <div class="services-sidebar">
+                <h4>Categories</h4>
+                <ul>
+                    <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Lorem ipsum dolor sit amet</a></li>
+                    <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Lorem ipsum dolor sit amet</a></li>
+                    <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Lorem ipsum dolor sit amet</a></li>
+                    <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Lorem ipsum dolor sit amet</a></li>
+                    <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Lorem ipsum dolor sit amet</a></li>
+                    <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Lorem ipsum dolor sit amet</a></li>
+                    <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Lorem ipsum dolor sit amet</a></li>
+                    <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Lorem ipsum dolor sit amet</a></li>
+                    <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Lorem ipsum dolor sit amet</a></li>
+                </ul><br>
+                <h4>Archives</h4>
+                <ul>
+                    <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Jan, 2012</a></li>
+                    <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Jan, 2012</a></li>
+                    <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Jan, 2012</a></li>
+                    <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Jan, 2012</a></li>
+                </ul>
+            </div>
+            <div class="bloder-content">
+
+                <div class="bloger-grid" id="cont">
+
+                    
+                </div>
+
+
+                
+            </div>
+
+            <div class="clear"> </div>
+
+        </div>
+    </div>
+
+    <div class="clear"> </div>
+    <!-- End-content-gallery-->
+    <!-- DC Pagination:C9 Start -->
+    <div class="wrap">
+        <!-- DC Pagination:A3 Start -->
+        <ul class="dc_pagination dc_paginationA dc_paginationA03">
+            <li><a href="#" class="first">First</a></li>
+            <li><a href="#" class="previous">Previous</a></li>
+            <li><a href="#" class="current">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#" class="next">Next</a></li>
+            <li><a href="#" class="last">Last</a></li>
+
+        </ul>
+        <!-- DC Pagination:A3 End -->
+
+        <div class="clear"> </div>
+
+        <!-- DC Pagination:C9 End -->
+    </div>
+    <div class="clear"> </div>
+
+    <div class="footer1">
+        <p class="link"><span>© All rights Reserved | Designed by&nbsp; <a href="http://w3layouts.com/"> W3Layouts</a>	</span></p>
+    </div>
+    <!-- End-wrap -->
+
+</body>
+</html>

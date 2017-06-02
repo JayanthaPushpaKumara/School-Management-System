@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "News ReadMore - Student Mangement System";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+
+
+<div class="header-nav1">
+    <div class="wrap">
+
+
+        <div class="search-bar">
+
+        </div>
+    </div>
+
+    <!-- End-Header-->
+    <div class="clear"> </div>
+    <!-- content-gallery-->
+</div>
+<div class="wrap">
+    <div class="about">
+        <div class="services-sidebar">
+            <h4>Categories</h4>
+            <ul>
+                <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">sport</a></li>
+                <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">union</a></li>
+                <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">club</a></li>
+                <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">meeting</a></li>
+                <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">society</a></li>
+                <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">others</a></li>
+            </ul><br>
+
+        </div>
+        <div class="bloder-content">
+
+            <div class="blog-box1" id="content">
+
+
+
+
+
+
+            </div>
+
+
+            <div class="clear"> </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="clear"> </div>
+<!-- End-content-gallery-->
+<!-- DC Pagination:C9 Start -->
+<div class="wrap">
+
+    <div class="clear"> </div>
+
+    <!-- DC Pagination:C9 End -->
+</div>
+
+
+
+
+
+
+<script language="javascript" type="text/javascript">
+    window.onload = function () {
+
+
+        var y = "@ViewBag.detailsid";
+
+
+        var x = 'http://localhost:56412/api/news/getnews/' + y;
+
+
+
+
+        $.ajax({
+            url: x,
+            type: 'GET',
+
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+
+            success: function (data) {
+
+                console.log(data);
+                /*  data.
+                document.getElementById('date').innerHTML = data.n_date;
+                         document.getElementById('teacher_id').innerHTML = data.t_id;
+                             document.getElementById('student_id').innerHTML = data.st_id;
+                document.getElementById('headline').innerHTML = data.headiline;
+                document.getElementById('description').innerHTML = data.discription;
+                document.getElementById('st_name').innerHTML = data.st_name;*/
+
+                document.getElementById('content').innerHTML += '<div class="blog-box-image"> <img src="' + data.img + '" title="priview" /></div><div class="blog-box-content"> <h5><a href="#">' + data.headiline + ' </a></h5><p>' + data.discription + ' </p> <ul><li><a href="#">' + data.st_name + '</a></li><li><a href="#">:' + data.n_date + '</a></li><li style="display:none"></li></ul> </div>';
+
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+
+
+
+    }
+
+
+</script>

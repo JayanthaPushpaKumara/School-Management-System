@@ -1,0 +1,298 @@
+﻿<!--STUDENT NEWS ADD-->
+
+@{
+    ViewBag.Title = "News Add - Student Management System";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+
+}
+
+
+
+
+
+
+
+<script language="javascript" type="text/javascript">
+
+    var stId = 12;  //   sandungen
+    var t_id;
+
+    var imgData;
+
+    $(document).ready(function () {
+        (function (document) {
+            var input = document.getElementById("files");
+
+            var fileData; // We need fileData to be visible to getBuffer.
+
+            // Eventhandler for file input.
+            function openfile(evt) {
+                var files = input.files;
+                // Pass the file to the blob, not the input[0].
+                fileData = new Blob([files[0]]);
+                // Pass getBuffer to promise.
+                var promise = new Promise(getBuffer);
+
+                promise.then(function (data) {
+                    // Here you can pass the bytes to another function.
+
+                    //alert(data);  show bite array
+
+                    imgData = _arrayBufferToBase64(data);
+                }).catch(function (err) {
+                    console.log('Error: ', err);
+                });
+            }
+
+
+
+
+            function getBuffer(resolve) {
+                var reader = new FileReader();
+                reader.readAsArrayBuffer(fileData);
+                reader.onload = function () {
+                    var arrayBuffer = reader.result
+                    var bytes = new Uint8Array(arrayBuffer);
+                    resolve(bytes);
+                }
+            }
+
+            // Eventlistener for file input.
+
+
+            input.addEventListener('change', openfile, false);
+
+
+        }(document));
+    });
+
+
+
+
+    function _arrayBufferToBase64(buffer) {
+        var binary = '';
+        var bytes = new Uint8Array(buffer);
+        var len = bytes.byteLength;
+        for (var i = 0; i < len; i++) {
+            binary += String.fromCharCode(bytes[i]);
+        }
+        return window.btoa(binary);
+    }
+
+
+
+    window.onload = function () {
+
+        var currentdate = new Date();
+
+        var datetime = currentdate.getFullYear() + "/"
+                        + (currentdate.getMonth() + 1) + "/"
+                        + currentdate.getDate() + " "
+                        + currentdate.getHours() + ":"
+                        + currentdate.getMinutes() + ":"
+                        + currentdate.getSeconds();
+
+
+        document.getElementById('date').innerHTML = datetime;
+        document.getElementById('date2').innerHTML = datetime;
+
+
+
+
+        var studenturl = 'http://localhost:56412/api/students/' + stId;
+
+        $.ajax({
+            url: studenturl,
+            type: 'GET',
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+
+            success: function (data) {
+
+
+                t_id = data.t_id;
+                alert("t_id=" + t_id);
+            },
+            error: function () {
+
+            }
+        });
+
+
+
+
+        $.validator.setDefaults({
+            submitHandler: function () {
+
+
+
+                document.getElementById("submit").onclick = function () {
+
+                    {
+
+                        var x = 'http://localhost:56412/api/news';
+
+                        var dataJSON = {
+
+                            "n_date": $('#date').val(),
+                            "t_id": t_id,
+                            "st_id": stId,
+                            "headiline": $('#headline').val(),  // headiline ----> headline
+                            "discription": $('#description').val(),  //discription---> description
+                            "st_name": $('#st_name').val(),
+                            "isConfirm": "no",
+                            "img": imgData
+
+                        };
+
+
+                        $.ajax({
+                            url: x,
+                            type: 'POST',
+                            data: JSON.stringify(dataJSON),
+                            dataType: "json",
+                            contentType: 'application/json; charset=utf-8',
+
+                            success: function (data) {
+
+                                console.log(data);
+                                // alert("sucess Data added");
+
+                                window.location = "http://localhost:56448/Student/News_view";
+
+                            },
+                            error: function () {
+                                console.log("Error.. cant save")
+                            }
+                        });
+
+                    }
+
+                }
+
+                //alert("submitted!");
+            }
+        });
+
+
+        $().ready(function () {
+            $("#signupForm").validate({
+                rules: {
+                    st_name: "required",
+                    headline: {
+                        required: true,
+                        minlength: 10,
+                        maxlength: 100
+                    },
+
+                    description: {
+                        required: true,
+                        minlength: 100,
+                        maxlength: 8000
+                    },
+
+
+                },
+                messages: {
+                    st_name: "Please enter your name",
+                    headline: {
+                        required: "Please provide a headline",
+                        minlength: "Your headline must be at least 10 characters long"
+                    },
+                    description: {
+                        required: "Please provide a description",
+                        minlength: "Your description must be at least 100 characters long"
+                    },
+
+
+                }
+            });
+        });
+
+
+
+    }
+
+</script>
+
+
+
+
+
+<!-- Start-wrap -->
+<!-- Start-Header-->
+
+
+<div class="header-nav1">
+    <div class="wrap">
+
+        <div class="search-bar">
+
+        </div>
+    </div>
+
+    <!-- End-Header-->
+    <div class="clear"> </div>
+    <!-- content-gallery-->
+</div>
+<div class="wrap">
+    <div style="border:none;" class="about">
+
+        <div class="contact-form">
+            <h4>ADD NEW NEWS</h4>
+            <form id="signupForm">
+
+                <div>
+                    <span><label id="date2"></label></span>
+                </div>
+                <div style="display:none">
+                    <span><textarea id="date"> </textarea></span>
+                </div>
+
+                <div>
+                    <span><label>student name</label></span>
+                </div>
+
+                <input id="st_name" type="text" name="st_name" />
+
+                <div>
+                    <span><label>headline</label></span>
+                </div>
+                <input id="headline" type="text" name="headline" placeholder="below 100 characters" />
+                <div>
+                    <span><label>description </label></span>
+                </div>
+                <textarea id="description" name="description"></textarea>
+
+                <div>
+                    <span><label>uplode image</label></span>
+                    <span><input type="file" id="files" /></span>
+                </div>
+
+
+                <div style="float:right">
+                    <button type="submit" id="submit">Save</button>
+                </div>
+
+
+
+            </form>
+
+        </div>
+
+        <!--      <div class="gallery">
+
+                 <img src="~/Content/images/15.jpg" alt="">
+
+             </div>
+
+             DC Pagination:C9 End -->
+    </div>
+</div>
+
+<div class="clear"> </div>
+<!-- End-content-gallery-->
+<!-- DC Pagination:C9 Start -->
+<div class="wrap">
+
+</div><br><br>

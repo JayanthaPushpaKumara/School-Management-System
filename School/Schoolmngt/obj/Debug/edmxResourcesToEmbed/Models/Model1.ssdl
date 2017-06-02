@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SMSystemw3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="attendance">
+    <Key>
+      <PropertyRef Name="st_id" />
+      <PropertyRef Name="date" />
+    </Key>
+    <Property Name="st_id" Type="int" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="state" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="district">
+    <Key>
+      <PropertyRef Name="district_id" />
+    </Key>
+    <Property Name="district_id" Type="int" Nullable="false" />
+    <Property Name="district_name" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="donator">
+    <Key>
+      <PropertyRef Name="d_id" />
+    </Key>
+    <Property Name="d_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="d_name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="d_company" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="follows">
+    <Key>
+      <PropertyRef Name="st_id" />
+      <PropertyRef Name="sub_id" />
+    </Key>
+    <Property Name="st_id" Type="int" Nullable="false" />
+    <Property Name="sub_id" Type="int" Nullable="false" />
+    <Property Name="sub_marks" Type="int" Nullable="false" />
+    <Property Name="Grade" Type="varchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="news">
+    <Key>
+      <PropertyRef Name="n_id" />
+    </Key>
+    <Property Name="n_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="n_date" Type="date" Nullable="false" />
+    <Property Name="t_id" Type="int" Nullable="false" />
+    <Property Name="st_id" Type="int" Nullable="false" />
+    <Property Name="headiline" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="discription" Type="varchar" MaxLength="8000" Nullable="false" />
+    <Property Name="isConfirm" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="st_name" Type="varchar" MaxLength="50" />
+    <Property Name="img" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="pay_id" />
+    </Key>
+    <Property Name="pay_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="st_id" Type="int" Nullable="false" />
+    <Property Name="grade" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="amount" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="statement" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="year" Type="date" />
+  </EntityType>
+  <EntityType Name="Principle">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="P_Nic" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="fname" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="lname" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="str_year" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="gender" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="school_Id" Type="int" />
+    <Property Name="school" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="reqItem">
+    <Key>
+      <PropertyRef Name="r_id" />
+    </Key>
+    <Property Name="r_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="st_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="quantity" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="iscomfirm" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="reqservice">
+    <Key>
+      <PropertyRef Name="r_id" />
+    </Key>
+    <Property Name="r_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="st_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ser_date" Type="date" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="isconfirm" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="school">
+    <Key>
+      <PropertyRef Name="school_id" />
+    </Key>
+    <Property Name="school_id" Type="int" Nullable="false" />
+    <Property Name="school_name" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="school_tp" Type="varchar" MaxLength="10" />
+    <Property Name="zone_id" Type="int" Nullable="false" />
+    <Property Name="pNic" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="pName" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sport_event">
+    <Key>
+      <PropertyRef Name="sportId" />
+    </Key>
+    <Property Name="sportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sp_name" Type="varchar" MaxLength="20" />
+    <Property Name="sp_event" Type="varchar" MaxLength="20" />
+    <Property Name="place" Type="varchar" MaxLength="20" />
+    <Property Name="recode" Type="varchar" MaxLength="20" />
+    <Property Name="ranks" Type="varchar" MaxLength="20" />
+    <Property Name="sp_description" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="stid" />
+    </Key>
+    <Property Name="stid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="st_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="st_address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="st_gender" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="st_bdy" Type="date" Nullable="false" />
+    <Property Name="st_year" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="t_id" Type="int" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="subject">
+    <Key>
+      <PropertyRef Name="sub_id" />
+    </Key>
+    <Property Name="sub_id" Type="int" Nullable="false" />
+    <Property Name="sub_name" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="teacher">
+    <Key>
+      <PropertyRef Name="tid" />
+    </Key>
+    <Property Name="tid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tfname" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="tlname" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="gender" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="p_Id" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityContainer Name="SMSystemw3ModelStoreContainer">
+    <EntitySet Name="attendance" EntityType="Self.attendance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="district" EntityType="Self.district" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="donator" EntityType="Self.donator" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="follows" EntityType="Self.follows" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="news" EntityType="Self.news" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Principle" EntityType="Self.Principle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="reqItem" EntityType="Self.reqItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="reqservice" EntityType="Self.reqservice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="school" EntityType="Self.school" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sport_event" EntityType="Self.sport_event" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="subject" EntityType="Self.subject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teacher" EntityType="Self.teacher" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,175 @@
+﻿
+@{
+    ViewBag.Title = "view_Sport";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        th, td {
+            align-items: baseline;
+            padding: 8px;
+            text-align: left;
+            border-bottom: 2px solid #ddd;
+        }
+
+        header {
+            height: 50px;
+            background: #264284;
+            margin-bottom: 20px;
+            border-bottom: 1px ridge rgb(214, 216, 230);
+            -webkit-box-shadow: 0 8px 6px -6px rgb(214, 216, 230);
+            -moz-box-shadow: 0 8px 6px -6px rgb(214, 216, 230);
+            box-shadow: 0 8px 6px -6px rgb(214, 216, 230);
+            margin-left: -120px;
+            margin-right: -104px;
+        }
+        .user-areaimg {
+            /* background: url(../images/dropdown.png) right 34px no-repeat #2023D3; */
+            
+            cursor: pointer;
+            float: right;
+            margin-right: 10%;
+            position: relative;
+            top: -60px;
+            height: 50px;
+        }
+        .headimg {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            top: 16px;
+            padding-right: 7px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <script language="javascript" type="text/javascript">
+
+        window.onload = function () {
+
+            var y = "@ViewBag.detailsid";
+
+            var x = 'http://localhost:56412/api/sport_event';
+
+
+                    $.ajax({
+                        url: x,
+                        type: 'GET',
+
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+
+                        success: function (data) {
+                            console.log(data);
+
+
+                            // var size = Object.keys(data).length;  get nu of keys in one object
+                            
+
+
+                            loop(data);
+                         
+
+                        },
+                        error: function () {
+                            alert("error");
+                        }
+                    });
+        }
+
+        //for (var a = 0; a < Object.keys(x).length; a++)
+
+        function loop(x) {
+            for (var a = 0; a < x.length; a++) {
+
+                document.getElementById('row').innerHTML += '<tr><td><div id="sp_name">' + x[a].sp_name + '</div></td> <td><div id="sp_event">' + x[a].sp_event + '</div></td><td><div id="place">' + x[a].place + '</div></td><td><div id="recode">' + x[a].recode + '</div></td><td><div id="ranks">' + x[a].ranks + '</div></td><td><div id="sp_description">' + x[a].sp_description + '</div></td> <td><a href="http://localhost:56448/Student/Sport_Edit/' + x[a].sportId + '"><input type="button"class="btn btn-info" value="Edit" /> </a><a href="http://localhost:56448/Student/Sport_Delete/' + x[a].sportId + '"><input type="button" class="btn btn-warning" value="Delete" /> </a></td></tr>';
+
+            }
+           
+        }
+
+
+               
+        
+        
+
+    </script>
+    <header >
+
+        <h1 style="margin-top:0px; padding-left:100px"><b>E SCHOOL</b></h1>
+        
+        <div class="user-areaimg">
+            <div class="headimg">
+                <img src="~/Content/images/14.png" style="height:40px"/>
+
+            </div>
+        </div>
+        
+
+    </header>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header" style="padding-bottom: 0px; margin: 40px 0 40px; padding-left:50px" >
+                SPECIAL SPORT TALENT
+
+            </h1>
+
+        </div>
+    </div>
+
+
+
+    <div class="wrapper company-profile">
+
+        <div class="main clearfix">
+         <!--   <img src="~/Content/images/11.png" />           -->
+
+                   
+            <table class="table table-hover">
+                <tr>
+                    <th>Sport name</th>
+                    <th>Event</th>
+                    <th>Place</th>
+                    <th>Recode</th>
+                    <th>Ranks</th>
+                    <th>Brief Description</th>
+                    <th></th>
+                </tr>
+
+                <tbody id="row">
+
+
+                </tbody>
+
+             </table>
+                   
+
+            
+             <!-- <a href="http://localhost:56448/Student/Sport_Delete/7"> <input type="submit" value="delete" /> </a>  --> 
+
+           
+
+            <input type="button" class="btn btn-success" value="Add new" onclick="location.href = 'http://localhost:56448/Student/Sport_Add';" />
+            
+        </div>
+
+
+
+        <!-- .post about -->
+        <!-- .main -->
+
+
+    </div>
+    <!-- .wrapper -->
+</body>
+</html>
+
+

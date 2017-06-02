@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<script language="javascript" type="text/javascript">
+    var z = 0;
+    var p = 0;
+    window.onload = function () {
+
+        document.getElementById('submit').onclick = function () {
+
+
+            var x = 'http://localhost:56412/api/attendances/';
+
+
+            $.ajax({
+                url: x,
+                type: 'GET',
+
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+
+                    console.log(data);
+                   loop(data)
+
+                   document.getElementById('percentage').innerHTML = (p/z)*100;
+
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
+
+        function loop(x) {
+            var test = parseInt(document.getElementById('st_id1').value);
+            for (var a = 0; a < x.length; a++) {
+                if (x[a].st_id == test) {
+                    document.getElementById('row').innerHTML += '<tr><td><div id="date">' + x[a].date +  '</div></td> <td><div id="status">' + x[a].state ;
+                    z++;
+
+                    if (x[a].state == 'present') {
+                        p++
+                    }
+                }
+            
+            }
+            if (z==0) {
+                alert("Id not found");
+            }
+
+        }
+
+
+    }
+</script>
+
+<body>
+    <form style="height:610px">
+        <div class="wrapper company-profile">
+
+
+            <div class="main clearfix">
+
+                <div class="content">
+                    <div class="post about">
+                        <div class="post-header">
+
+                            <h2>Attend Dates</h2><br/> <br/>
+
+                            <input id="st_id1" name="st_id1" required placeholder="Student id" type="text" />
+                        
+                            <button style="width:75px;height:20px;background-color:lightblue"> Get result </button>
+                        </div>
+                        
+
+                        
+                        <table>
+
+
+
+                            <tr>
+                                <th>Percentage</th>
+                                <td>
+                                    <textarea id="percentage" name="percentage" style="float:right; width:100px; height:20px" ></textarea>
+                               </td>
+                            </tr>
+
+                           
+                        </table>
+                        <hr />
+
+                        <table>
+
+
+
+                            <tr>
+                                <th>Date</th>
+                                <th>State</th>
+
+                                    
+                               
+                           </tr>
+
+                            <tbody id="row"></tbody>
+                           
+                        </table>
+   
+</div>
+            </div>
+       
+            <aside class="sidebar">
+                <br /><br /><br /><br /><br /><br />
+                <!-- .add-openings -->
+                <div class="widget">
+                    <h3>Note</h3>
+                    <p>If your percentage of attendance is less than 80% please submit your medical report. </p>
+                </div>
+
+
+                <a href="~/Report2/WebForm1.aspx">Get report</a>
+                <!-- text widget -->
+            </aside>
+        </div>
+
+
+
+
+
+    </div>
+    <!-- .wrapper -->
+    </form>
+</body>
+

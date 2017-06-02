@@ -1,0 +1,187 @@
+﻿<!--TEACHER NEWS EDIT-->
+
+@{
+    ViewBag.Title = "News Edit(teacher) - Student Management System";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+
+<script language="javascript" type="text/javascript">
+
+        window.onload = function () {
+
+
+            var y = "@ViewBag.detailsid";
+
+            var x = 'http://localhost:56412/api/news/getnews/' + y;
+
+
+
+
+            $.ajax({
+                url: x,
+                type: 'GET',
+
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+
+                    console.log(data);
+                    document.getElementById('date').innerHTML = data.n_date;
+                    document.getElementById('teacher_id').innerHTML = data.t_id;
+                    document.getElementById('student_id').innerHTML = data.st_id;
+                    document.getElementById('headline').innerHTML = data.headiline;
+                    document.getElementById('description').innerHTML = data.discription;
+                    document.getElementById('st_name').innerHTML = data.st_name;
+
+
+
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+
+
+            var currentdate = new Date();
+
+            /*            var datetime2 = currentdate.getDate()             + "/"
+                                        + (currentdate.getMonth() + 1)   + "/"
+                                        + currentdate.getFullYear()      + " "
+                                        + currentdate.getHours()         + ":"
+                                        + currentdate.getMinutes()   + ":"
+                                        + currentdate.getSeconds();                         */
+
+            var datetime = currentdate.getFullYear() + "/"
+                            + (currentdate.getMonth() + 1) + "/"
+                            + currentdate.getDate() + " "
+                            + currentdate.getHours() + ":"
+                            + currentdate.getMinutes() + ":"
+                            + currentdate.getSeconds();
+
+
+            document.getElementById('date').innerHTML = datetime;
+            document.getElementById('date2').innerHTML = datetime;
+
+
+
+            document.getElementById("submit").onclick = function () {
+
+                var para = '?id=' + y +
+                    '&n_date=' + $('#date').val() +
+                    '&t_id= ' + $('#teacher_id').val() +
+                    '&st_id= ' + $('#student_id').val() +
+                    '&headiline= ' + $('#headline').val() +
+                    '&discription= ' + $('#description').val() +
+                   ' &isConfirm=no' +
+                    '&st_name= ' + $('#st_name').val();
+
+
+
+                $.ajax({
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    type: 'GET',
+
+
+                    url: 'http://localhost:56412/api/news/Getnews' + para,
+
+
+                    success: function (data) {
+
+                        window.location = "http://localhost:56448/Student/News_view";
+
+                        //  (function () {
+                        //       history.go(-1); return true;
+
+                        //   })();
+
+                    },
+                    error: function (xhr, status, p3, p4) {
+                        var err = "Error " + " " + status + " " + p3;
+                        if (xhr.responseText && xhr.responseText[0] == "{")
+                            err = JSON.parse(xhr.responseText).message;
+                        alert(err);
+                    }
+
+
+
+                });
+            }
+
+        }
+
+
+</script>
+
+
+
+<div class="header-nav1">
+    <div class="wrap">
+
+        <div class="search-bar">
+            <ul>
+                <li><input type="text"></li>
+                <li><input type="submit" value="" /></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- End-Header-->
+    <div class="clear"> </div>
+    <!-- content-gallery-->
+</div>
+<div class="wrap">
+    <div style="border:none;" class="about">
+
+        <div class="contact-form">
+            <h4>EDIT YOUR NEWS</h4>
+            <form>
+                <div>
+                    <span><label id="date2"></label></span>
+                </div>
+                <div style="display:none">
+                    <span><textarea id="date"> </textarea></span>
+                </div>
+                <div>
+                    <span><label></label></span>
+                </div>
+                <div>
+                    <span><label>name</label></span>
+                    <span><textarea id="st_name" style="height:auto; width:98%"> </textarea></span>
+                </div>
+                <div>
+                    <span><label>headline</label></span>
+                    <span><textarea id="headline" style="height:auto; width:98%"> </textarea></span>
+                </div>
+                <div>
+                    <span><label>description </label></span>
+                    <span><textarea id="description"> </textarea></span>
+                </div>
+
+                <div>
+                    <span><label>Temporary Data</label></span>
+                    <span><textarea id="teacher_id" style="height:auto; width:98%"> </textarea></span>
+                    <span><textarea id="student_id" style="height:auto; width:98%"> </textarea></span>
+                </div>
+
+                <div>
+                    <input type="button" class="btn btn-warning" value="Save" id="submit" /><!--
+                    <a href="#" class="myButton" id="submit">Submit</a>
+                    <span><input id="submit" type="submit" value="Submit"></span>       -->
+                </div>
+            </form>
+
+        </div>
+
+        <!-- DC Pagination:C9 End -->
+    </div>
+</div>
+
+<div class="clear"> </div>
+<!-- End-content-gallery-->
+<!-- DC Pagination:C9 Start -->
+<div class="wrap">
+
+</div><br><br>

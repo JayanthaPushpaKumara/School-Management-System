@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+
+
+<body>
+    <script language="javascript" type="text/javascript">
+       
+    window.onload = function () {
+
+        document.getElementById('submit').onclick = function () {
+            var y = "@ViewBag.detailsid";
+            var x = 'http://localhost:56412/api/follows/';
+           
+            $.ajax({
+                url: x,
+                type: 'GET',
+
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+
+                    console.log(data);
+                    loop(data)
+                  
+
+
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
+
+        function loop(x) {
+            var test = parseInt(document.getElementById('st_id1').value);
+            var cook =test;
+            for (var a = 0; a < x.length; a++) {
+                if (x[a].st_id == test)
+                    document.getElementById('row').innerHTML += '<tr><td><div id="sub_id">' + x[a].sub_id + '</div></td> <td><div id="sub_marks">' + x[a].sub_marks + '</div></td><td><div id="Grade"' + x[a].Grade;
+
+
+            }
+        }
+      
+
+    }
+      
+       
+    </script>
+
+
+    <form style="height:610px">
+        <div class="wrapper company-profile">
+            
+
+            <div class="main clearfix">
+                <div class="content">
+                    <div class="post about">
+                        <div class="post-header">
+                            <h2>Mark sheet</h2>
+                            <br><br>
+                            <input id="st_id1" name="st_id1" required placeholder="Student id" type="number" />
+                           
+                            <a href="#" input type="submit" class="myButton" id="submit">Get result</a>
+                           
+                        </div>
+                        
+
+
+                        
+                        <table>
+                            <tr>
+                                <th>Subject name</th>
+                                <th>Marks</th>
+                                <th>School Grade</th>
+
+                            </tr>
+
+                            <tbody id="row"></tbody>
+
+                        </table>
+
+
+                    </div>
+                </div>
+                <br/><br /><br /><br /><br />
+                <aside class="sidebar">
+
+                    <div class="widget">
+                        <h3>Note</h3>
+                        <p>Check student Marks</p>
+                    </div>
+                  
+                </aside>
+            </div>
+            
+        </div>
+       </form>
+  
+
+
+</body>
+
+

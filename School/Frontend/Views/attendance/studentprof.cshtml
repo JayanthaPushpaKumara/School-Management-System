@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "studentprof";
+}
+
+<script language="javascript" type="text/javascript">
+    var p = 0;
+    var z = 0;
+    var w;
+    window.onload = function () {
+        var JObject = JSON.parse(localStorage.getItem("user"));
+        if (JObject != undefined) {
+            w = JObject[1].stid;
+        }
+        var y = "@ViewBag.studentprofid";
+            var x = 'http://localhost:56412/api/attendances/' ;
+
+
+            $.ajax({
+                url: x,
+                type: 'GET',
+
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+
+                    console.log(data);
+                   loop(data)
+                   document.getElementById('percentage').innerHTML = (p / z) * 100;
+
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
+
+        function loop(x) {
+            for (var a = 0; a < x.length; a++) {
+                if (x[a].st_id == w) {
+                    document.getElementById('row').innerHTML += '<tr><td><div id="date">' + x[a].date + '</div></td> <td><div id="status">' + x[a].state;
+                    z++;
+                    if (x[a].state == 'present') {
+                        p++;
+                    }
+                }
+                    
+               
+            }
+        }
+
+    
+</script>
+
+<body>
+    <form style="height:610px">
+        <div class="wrapper company-profile">
+
+
+            <div class="main clearfix">
+
+                <div class="content">
+                    <div class="post about">
+                        <div class="post-header">
+                            <h2>Attend Dates</h2>
+
+                        </div>
+
+                        <table>
+                            <tr>
+                                <th>Percentage</th>
+                                <th><textarea id="percentage" name="percentage" style="float:right; width:100px; height:20px"></textarea></th>
+                            </tr>
+
+
+                        </table>
+                        <hr />
+
+
+                        <table>
+                            <tr>
+                                <th>Date</th>
+                                <th>State</th>
+                               
+                            </tr>
+                            
+
+                            <tbody id="row"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <aside class="sidebar">
+                    <br /><br /><br /><br /><br />
+
+                    <!-- .add-openings -->
+                    <div class="widget">
+                        <h3>Note</h3>
+                        <p>If your percentage of attendance is less than 80% please submit your medical report. </p>
+                    </div>
+                    <!-- text widget -->
+                </aside>
+            </div>
+
+
+
+
+
+        </div>
+    </form>
+</body>
+
+
+

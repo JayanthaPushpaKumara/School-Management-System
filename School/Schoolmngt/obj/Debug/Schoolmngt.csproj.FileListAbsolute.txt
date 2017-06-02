@@ -1,0 +1,144 @@
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\roslyn\csc.exe
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\roslyn\vbc.exe
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\roslyn\VBCSCompiler.exe
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\Schoolmngt.dll.config
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\Schoolmngt.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\Schoolmngt.pdb
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\EntityFramework.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\EntityFramework.SqlServer.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\Newtonsoft.Json.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Net.Http.Formatting.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Cors.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Helpers.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.Cors.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.WebHost.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Mvc.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Razor.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.Deployment.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.Razor.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\EntityFramework.xml
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\EntityFramework.SqlServer.xml
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.Cors.xml
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Razor.xml
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.xml
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.Deployment.xml
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.Razor.xml
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Helpers.xml
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Mvc.xml
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\Newtonsoft.Json.xml
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Net.Http.Formatting.xml
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.xml
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.WebHost.xml
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\obj\Debug\Schoolmngt.dll
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\obj\Debug\Schoolmngt.pdb
+C:\Users\DELL\Desktop\cyclonefinal\School\Schoolmngt\obj\Debug\Schoolmngt.csprojResolveAssemblyReference.cache
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\csc.exe
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\System.Collections.Immutable.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\System.Reflection.Metadata.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\vbc.exe
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\VBCSCompiler.exe
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\VBCSCompiler.exe.config
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\Schoolmngt.dll.config
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\Schoolmngt.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\Schoolmngt.pdb
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\EntityFramework.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\EntityFramework.SqlServer.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\Microsoft.Web.Infrastructure.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\Newtonsoft.Json.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Net.Http.Formatting.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Cors.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Helpers.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.Cors.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.WebHost.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Mvc.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Razor.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.Deployment.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.Razor.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\EntityFramework.xml
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\EntityFramework.SqlServer.xml
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.Cors.xml
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Razor.xml
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.xml
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.Deployment.xml
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.Razor.xml
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Helpers.xml
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Mvc.xml
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\Newtonsoft.Json.xml
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Net.Http.Formatting.xml
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.xml
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.WebHost.xml
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\obj\Debug\Schoolmngt.dll
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\obj\Debug\Schoolmngt.pdb
+D:\backup\03.21\cyclonefinal\School\Schoolmngt\obj\Debug\Schoolmngt.csprojResolveAssemblyReference.cache
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\csc.exe
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\System.Collections.Immutable.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\System.Reflection.Metadata.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\vbc.exe
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\VBCSCompiler.exe
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\roslyn\VBCSCompiler.exe.config
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\Schoolmngt.dll.config
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\Schoolmngt.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\Schoolmngt.pdb
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\EntityFramework.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\EntityFramework.SqlServer.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\Microsoft.Web.Infrastructure.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\Newtonsoft.Json.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Net.Http.Formatting.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Cors.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Helpers.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.Cors.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.WebHost.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Mvc.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Razor.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.Deployment.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.Razor.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\EntityFramework.xml
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\EntityFramework.SqlServer.xml
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.Cors.xml
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Razor.xml
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.xml
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.Deployment.xml
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Webpages.Razor.xml
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Helpers.xml
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Mvc.xml
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\Newtonsoft.Json.xml
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Net.Http.Formatting.xml
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.xml
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\bin\System.Web.Http.WebHost.xml
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\obj\Debug\Schoolmngt.csprojResolveAssemblyReference.cache
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\obj\Debug\Schoolmngt.dll
+E:\2nd year\2nd year project\Final software\03.21\cyclonefinal\School\Schoolmngt\obj\Debug\Schoolmngt.pdb

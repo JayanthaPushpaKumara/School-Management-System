@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b8cf8db7e0eb40da880582d1450e80ee" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="SMSystemw3Model.district" Width="1.5" PointX="8" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMSystemw3Model.news" Width="1.5" PointX="2.375" PointY="0.5" />
+        <EntityTypeShape EntityType="SMSystemw3Model.sport_event" Width="1.5" PointX="6.125" PointY="0.5" />
+        <EntityTypeShape EntityType="SMSystemw3Model.attendance" Width="1.5" PointX="9.875" PointY="3.625" />
+        <EntityTypeShape EntityType="SMSystemw3Model.follow" Width="1.5" PointX="4.25" PointY="3.625" />
+        <EntityTypeShape EntityType="SMSystemw3Model.payment" Width="1.5" PointX="7.875" PointY="0.5" />
+        <EntityTypeShape EntityType="SMSystemw3Model.subject" Width="1.5" PointX="6.25" PointY="3.625" />
+        <EntityTypeShape EntityType="SMSystemw3Model.Login" Width="1.5" PointX="0.5" PointY="3.625" />
+        <EntityTypeShape EntityType="SMSystemw3Model.donator" Width="1.5" PointX="2.375" PointY="3.625" />
+        <EntityTypeShape EntityType="SMSystemw3Model.test" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SMSystemw3Model.reqservice" Width="1.5" PointX="3.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SMSystemw3Model.reqItem" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SMSystemw3Model.school" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SMSystemw3Model.Principle" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SMSystemw3Model.student" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="SMSystemw3Model.teacher" Width="1.5" PointX="2.75" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

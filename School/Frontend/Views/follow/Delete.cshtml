@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+}
+
+<body>
+
+    <script language="javascript" type="text/javascript">
+
+        window.onload = function () {
+
+            document.getElementById('submit').onclick = function () {
+
+                {
+                    var y = "@ViewBag.detailsid";
+
+                    var x = 'http://localhost:56412/api/follows/Deletefollow/' + y;
+                   
+                   // alert(x);
+
+                    $.ajax({
+                        url: x,
+                        type: 'GET',
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+                        
+                        success: function (data) {
+
+                            console.log(data);
+                            alert("success");
+                            window.location = "http://localhost:56448/follows/Details";
+                        },
+
+                        error: function () {
+
+                            alert("error");
+
+                        }
+                    });
+                }
+            }
+        }
+
+    </script>
+
+    <form style="height:500px">
+
+
+        <h2>Are you sure delete this data.. ??</h2>
+
+        <a href="#" class="myButton" id="submit">Submit</a>
+
+    </form>
+</body>
+
+

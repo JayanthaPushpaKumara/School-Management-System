@@ -1,0 +1,207 @@
+﻿
+
+<!--  Teacher index  -->
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<html lang="en">
+<head>
+    <style>
+        small {
+            float: right;
+            margin: 0 0 10px 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <img id="loadingpic" src="~/Content/images/gif/default (1).gif" style="position:absolute; left:800px;top:0px;right:0px; bottom:0px;  margin:auto; z-index:100000" />
+    
+    <script language="javascript" type="text/javascript">
+
+
+        window.onload = function () {
+            var JObject = JSON.parse(localStorage.getItem("user"));
+
+
+            if (JObject != undefined) {
+                document.getElementById("myProfileShow").innerHTML = JObject[1].tfname;
+                //       $("#myProfileShow").html(user.email);
+            }
+
+            $('#clear').click(function () {
+                window.localStorage.clear();
+            });
+
+
+            var x = 'http://localhost:56412/api/news';
+            var id;
+
+            
+            $.ajax({
+                url: x,
+                type: 'GET',
+
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+
+                 
+                    //console.log(data);
+                    data.reverse();
+                    loop(data);
+
+
+
+                },
+                error: function () {
+
+                }
+            });
+
+        }
+        $(document).ready(function () {
+
+            $("#loadingpic").fadeOut(2000); background
+
+        });
+
+
+        function loop(x) {
+            var cont = 0;
+            loop1:
+                for (var a = 0; a < x.length; a++) {
+
+                    if (x[a].isConfirm == 'yes') {
+
+                        document.getElementById('cont').innerHTML += '<div class="widget"> <h4><img src="http://localhost:56448/Content/images/pointer.png" /> <a href="http://localhost:56448/Student/News_ReadMore/' + x[a].n_id + '">' + x[a].headiline + '</a></h4></div>';
+                        cont++;
+                        if (cont == 6) {
+                            break loop1;
+                        }
+
+                    }
+                }
+
+        }
+
+
+    </script>
+
+
+
+    <div class="container">
+        <!-- Introduction Row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Welcome
+                    <small id="myProfileShow">user email</small>
+                
+                    <small><a id="clear" href="http://localhost:56448/Login/checkLogin"> Logout </a></small>
+               </h1>
+
+            </div>
+        </div>
+        <!-- Team Members Row -->
+
+        <div class="row">
+
+            <div class="col-lg-9">
+                <div class="col-lg-4 col-sm-4 text-center">
+                    <a href="http://localhost:56448/Teacher/profile/1">
+                        <img class="img-circle img-responsive img-center" src="~/Content/images/16.jpg" onmouseover="this.src='/Content/images/16blur.jpg'" onmouseout="this.src='/Content/images/16.jpg'" alt="">
+                    </a>
+                    <h3>
+                        My Profile
+
+                    </h3>
+
+                </div>
+                <div class="col-lg-4 col-sm-4 text-center">
+                    <a href="http://localhost:56448/follow/addorview">
+                        <img class="img-circle img-responsive img-center" src="~/Content/images/8.jpg" onmouseover="this.src='/Content/images/8blur.jpg'" onmouseout="this.src='/Content/images/8.jpg'" alt="">
+                    </a>
+                    <h3>
+                        Marks Record
+
+                    </h3>
+
+                </div>
+                <div class="col-lg-4 col-sm-4 text-center">
+                    <a href="http://localhost:56448/Teacher/requirements">
+                        <img class="img-circle img-responsive img-center" src="~/Content/images/9.jpg" onmouseover="this.src='/Content/images/9blur.jpg'" onmouseout="this.src='/Content/images/9.jpg'" alt="">
+                    </a>
+                    
+                    <h3>
+                        Requirement
+
+                    </h3>
+
+                </div>
+                <div class="col-lg-4 col-sm-4 text-center">
+                    <a href="http://localhost:56448/attendance/index">
+                        <img class="img-circle img-responsive img-center" src="~/Content/images/50.jpg" onmouseover="this.src='/Content/images/50blur.jpg'" onmouseout="this.src='/Content/images/50.jpg'" alt="">
+                    </a>
+                    <h3>
+                        Attendance Record
+
+                    </h3>
+
+                </div>
+                <div class="col-lg-4 col-sm-4 text-center">
+                    <a href="http://localhost:56448/studentLogin/Index">
+                        <img class="img-circle img-responsive img-center" src="~/Content/images/13.jpg" onmouseover="this.src='/Content/images/13blur.jpg'" onmouseout="this.src='/Content/images/13.jpg'" alt="">
+                    </a>
+                    <h3>
+                        Create Students' <br />Account
+
+                    </h3>
+
+                </div>
+                <div class="col-lg-4 col-sm-4 text-center">
+                    <a href="http://localhost:56448/Teacher/News_View">
+                        <img class="img-circle img-responsive img-center" src="~/Content/images/12.jpg" onmouseover="this.src='/Content/images/12blur.jpg'" onmouseout="this.src='/Content/images/12.jpg'" alt="">
+                    </a>
+                    <h3>
+                        News
+
+                    </h3>
+
+                </div>
+                <div class="col-lg-4 col-sm-4 text-center">
+                    <a href="http://localhost:56448/pay/markorview">
+                        <img class="img-circle img-responsive img-center" src="~/Content/images/6.jpg" onmouseover="this.src='/Content/images/6blur.jpg'" onmouseout="this.src='/Content/images/6.jpg'" alt="">
+                        </a>
+                            <h3>
+                                Welfare fee
+
+                            </h3>
+
+
+</div>
+            </div>
+            <div class="col-lg-3" style="border-style: ridge;border-width: 0px 0px 0px 1px;">
+                <p> <h1><b><u><a href="http://localhost:56448/Teacher/News_View">Breacking news </a></u></b> </h1></p>
+                <div id="cont">
+                    
+                </div>
+            </div>
+        </div>
+        <hr>
+       
+
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

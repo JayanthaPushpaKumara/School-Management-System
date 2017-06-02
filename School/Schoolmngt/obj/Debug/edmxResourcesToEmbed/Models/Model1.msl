@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SMSystemw3ModelStoreContainer" CdmEntityContainer="SMSystemConsettings">
+    <EntitySetMapping Name="districts">
+      <EntityTypeMapping TypeName="SMSystemw3Model.district">
+        <MappingFragment StoreEntitySet="district">
+          <ScalarProperty Name="district_id" ColumnName="district_id" />
+          <ScalarProperty Name="district_name" ColumnName="district_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="news">
+      <EntityTypeMapping TypeName="SMSystemw3Model.news">
+        <MappingFragment StoreEntitySet="news">
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="st_name" ColumnName="st_name" />
+          <ScalarProperty Name="isConfirm" ColumnName="isConfirm" />
+          <ScalarProperty Name="n_id" ColumnName="n_id" />
+          <ScalarProperty Name="discription" ColumnName="discription" />
+          <ScalarProperty Name="headiline" ColumnName="headiline" />
+          <ScalarProperty Name="st_id" ColumnName="st_id" />
+          <ScalarProperty Name="t_id" ColumnName="t_id" />
+          <ScalarProperty Name="n_date" ColumnName="n_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sport_event">
+      <EntityTypeMapping TypeName="SMSystemw3Model.sport_event">
+        <MappingFragment StoreEntitySet="sport_event">
+          <ScalarProperty Name="sp_description" ColumnName="sp_description" />
+          <ScalarProperty Name="ranks" ColumnName="ranks" />
+          <ScalarProperty Name="recode" ColumnName="recode" />
+          <ScalarProperty Name="place" ColumnName="place" />
+          <ScalarProperty Name="sp_event" ColumnName="sp_event" />
+          <ScalarProperty Name="sp_name" ColumnName="sp_name" />
+          <ScalarProperty Name="sportId" ColumnName="sportId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="attendances">
+      <EntityTypeMapping TypeName="SMSystemw3Model.attendance">
+        <MappingFragment StoreEntitySet="attendance">
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="st_id" ColumnName="st_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="follows">
+      <EntityTypeMapping TypeName="SMSystemw3Model.follow">
+        <MappingFragment StoreEntitySet="follows">
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="sub_marks" ColumnName="sub_marks" />
+          <ScalarProperty Name="sub_id" ColumnName="sub_id" />
+          <ScalarProperty Name="st_id" ColumnName="st_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payments">
+      <EntityTypeMapping TypeName="SMSystemw3Model.payment">
+        <MappingFragment StoreEntitySet="payment">
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="statement" ColumnName="statement" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="grade" ColumnName="grade" />
+          <ScalarProperty Name="st_id" ColumnName="st_id" />
+          <ScalarProperty Name="pay_id" ColumnName="pay_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subjects">
+      <EntityTypeMapping TypeName="SMSystemw3Model.subject">
+        <MappingFragment StoreEntitySet="subject">
+          <ScalarProperty Name="sub_name" ColumnName="sub_name" />
+          <ScalarProperty Name="sub_id" ColumnName="sub_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="SMSystemw3Model.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="donators">
+      <EntityTypeMapping TypeName="SMSystemw3Model.donator">
+        <MappingFragment StoreEntitySet="donator">
+          <ScalarProperty Name="d_company" ColumnName="d_company" />
+          <ScalarProperty Name="d_name" ColumnName="d_name" />
+          <ScalarProperty Name="d_id" ColumnName="d_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reqservices">
+      <EntityTypeMapping TypeName="SMSystemw3Model.reqservice">
+        <MappingFragment StoreEntitySet="reqservice">
+          <ScalarProperty Name="isconfirm" ColumnName="isconfirm" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="ser_date" ColumnName="ser_date" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="st_id" ColumnName="st_id" />
+          <ScalarProperty Name="r_id" ColumnName="r_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reqItems">
+      <EntityTypeMapping TypeName="SMSystemw3Model.reqItem">
+        <MappingFragment StoreEntitySet="reqItem">
+          <ScalarProperty Name="iscomfirm" ColumnName="iscomfirm" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="st_id" ColumnName="st_id" />
+          <ScalarProperty Name="r_id" ColumnName="r_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="schools">
+      <EntityTypeMapping TypeName="SMSystemw3Model.school">
+        <MappingFragment StoreEntitySet="school">
+          <ScalarProperty Name="pName" ColumnName="pName" />
+          <ScalarProperty Name="pNic" ColumnName="pNic" />
+          <ScalarProperty Name="zone_id" ColumnName="zone_id" />
+          <ScalarProperty Name="school_tp" ColumnName="school_tp" />
+          <ScalarProperty Name="school_name" ColumnName="school_name" />
+          <ScalarProperty Name="school_id" ColumnName="school_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Principles">
+      <EntityTypeMapping TypeName="SMSystemw3Model.Principle">
+        <MappingFragment StoreEntitySet="Principle">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="school" ColumnName="school" />
+          <ScalarProperty Name="school_Id" ColumnName="school_Id" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="str_year" ColumnName="str_year" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="P_Nic" ColumnName="P_Nic" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="SMSystemw3Model.student">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="t_id" ColumnName="t_id" />
+          <ScalarProperty Name="st_year" ColumnName="st_year" />
+          <ScalarProperty Name="st_bdy" ColumnName="st_bdy" />
+          <ScalarProperty Name="st_gender" ColumnName="st_gender" />
+          <ScalarProperty Name="st_address" ColumnName="st_address" />
+          <ScalarProperty Name="st_name" ColumnName="st_name" />
+          <ScalarProperty Name="stid" ColumnName="stid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teachers">
+      <EntityTypeMapping TypeName="SMSystemw3Model.teacher">
+        <MappingFragment StoreEntitySet="teacher">
+          <ScalarProperty Name="p_Id" ColumnName="p_Id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="tlname" ColumnName="tlname" />
+          <ScalarProperty Name="tfname" ColumnName="tfname" />
+          <ScalarProperty Name="tid" ColumnName="tid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "requirements";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+    <script language="javascript" type="text/javascript">
+
+
+        window.onload = function () {
+
+            var x = 'http://localhost:56412/api/reqItem';
+
+            var y = 'http://localhost:56412/api/reqservice';
+
+           
+
+            jQuery.ajax({
+                url: x,
+                type: 'GET',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+
+                    console.log(data);
+                    loop(data);
+
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+
+
+
+
+            jQuery.ajax({
+                url: y,
+                type: 'GET',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+             
+                    console.log(data);
+                    loop2(data);
+
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+
+            function loop(x) {
+
+                for (var a = 0; a < x.length; a++) {
+
+                    var id = x[a].r_id;
+                    if (x[a].iscomfirm == 'No') {
+
+                        document.getElementById('cont').innerHTML += '<div class="bloger-content"> <h5> Index Number :' + x[a].st_id + '</h5>     <p> Requirement Type  :' + x[a].name + ' <br> Quantity :' + x[a].quantity + '<br> Description : ' + x[a].description + '</p> <ul>    <li> <a href="http://localhost:56448/Teacher/reqItem_Confirm/' + id + '"> <span>Confirm</span></a>  <br/><hr/>    <a href="http://localhost:56448/Teacher/reqItem_delete/' + id + '"> <span>Delete</span></a>     </li></ul> </div>  <div>   <div class="clear"> </div><hr/>';
+                          
+                    }
+
+
+
+
+                }
+            }
+            function loop2(x) {
+
+                for (var a = 0; a < x.length; a++) {
+
+                    var id = x[a].r_id;
+                    if (x[a].isconfirm == 'No') {
+
+                        document.getElementById('cont').innerHTML += '<div class="bloger-content"> <h5> Index Number :' + x[a].st_id + '</h5>     <p> Requirement Type  :' + x[a].name + ' <br> Service Date :' + x[a].ser_date + '<br> Description : ' + x[a].description + '</p> <ul>    <li> <a href="http://localhost:56448/Teacher/reqService_Confirm/' + id + '"><span>Confirm</span></a> <br/><hr/> <a href="http://localhost:56448/Teacher/reqservice_delete/' + id + '"> <span>Delete</span></a>  </li> </ul> </div>  <div>   <div class="clear"> </div><hr/>';
+
+                    }
+
+                }
+            }
+
+            
+
+        }
+
+
+
+
+    </script>
+
+
+
+
+    <div class="header-nav1">
+        
+          <h1>E-School</h1> 
+            <br /><br />
+       
+
+        <div class="clear"> </div>
+    
+    </div>
+    <div class="wrap">
+        <div class="about">
+           
+            <div class="bloder-content">
+
+                <div class="bloger-grid" id="cont">
+
+
+                </div>
+
+            </div>
+
+            <div class="clear"> </div>
+
+        </div>
+    </div>
+<br /><br /><br />
+   
+ 

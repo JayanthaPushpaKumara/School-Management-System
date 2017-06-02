@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "marksadd";
+}
+
+<html>
+<head>
+
+    <script language="javascript" type="text/javascript">
+
+        window.onload = function () {
+            
+
+                
+                
+            var x = 'http://localhost:56412/api/subjects';
+
+
+                    $.ajax({
+                        url: x,
+                        type: 'GET',
+
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+
+                        success: function (data) {
+
+                            console.log(data);
+                            loop(data)
+
+
+                        },
+                        error: function () {
+                            alert("error");
+                        }
+                    });
+            
+
+                function loop(x) {
+                    for (var a = 0; a < x.length; a++) {
+                       
+                            document.getElementById('row').innerHTML += '<tr><td><div id="sub_id">' + x[a].sub_id + '</div></td> <td><div id="sub_name">' + x[a].sub_name ;
+
+
+                    }
+                }
+
+            
+
+
+            document.getElementById('submit').onclick = function () {
+                var x = 'http://localhost:56412/api/follows';
+                var dataJSON = {
+                    "st_id": $('#sid').val(),
+                    "sub_id": $('#subid').val(),
+                    "sub_marks": $('#submarks').val(),
+                    "Grade": $('#Grade').val()
+                };
+
+                $.ajax({
+
+                    url: x,
+                    type: 'POST',
+                    data: JSON.stringify(dataJSON),
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+
+                    success: function (data) {
+
+                        console.log(data);
+                        window.location = "http://localhost:56448/follow/marksadd";
+                        //  alert("sucess");
+                        location.reload();
+
+                    },
+                    error: function () {
+                      //  alert("error");
+                    }
+
+
+
+                });
+
+            };
+
+        }
+</Script>
+
+</head>
+
+<body>
+    <div class="wrapper user-profile">
+
+
+        <div class="main clearfix">
+            <div class="content">
+
+                    <div class="post edit-company">
+                        <div class="post-header">
+                            <h2>Marks</h2>
+                            <a class="edit-link" href="user_profile_settings.html"></a><a class="company-openings" href="#"></a>
+                        </div>
+                        <!-- .post-header -->
+                        <ul>
+                            <li class="settings-field">
+                                <img class="user-avatar" src="~/Content/images/8.jpg" width="50" height="50" alt="" />
+                                <input id="sid" required placeholder="Index Number" type="text" />
+                                <br /> <br /> <br /> <br /> <br />
+                            </li>
+                            <!-- .settings-field -->
+                            <li class="settings-field">
+                                <input id="Grade" required placeholder="Grade" type="text" /><br /><br />
+                                <input id="subid" required placeholder="Subject Id" type="text" /><br><br>
+                                <input id="submarks" required placeholder="Marks" type="text" />
+
+                                
+                        </ul>
+                    </div>
+                    <!-- .post -->
+                    <a href="#" class="myButton" id="submit">Submit</a>
+
+              
+                <!-- form -->
+            </div>
+            <!-- .content -->
+            <aside class="sidebar">
+
+                <!-- .add-openings -->
+                <br /><br /><br /><br /><br />
+                <div class="widget">
+                    <h3>Note</h3>
+
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                           
+
+                            <th>Name</th>
+
+                        </tr>
+
+                        <tbody id="row"></tbody>
+
+                    </table>
+                </div>
+                <!-- text widget -->
+            </aside>
+            <!-- .sidebar -->
+        </div>
+        <!-- .main -->
+
+        <!-- footer -->
+    </div>
+    <!-- .wrapper -->
+</body>
+</html>

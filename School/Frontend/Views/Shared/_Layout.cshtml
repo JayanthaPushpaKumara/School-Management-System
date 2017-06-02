@@ -1,0 +1,57 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+   
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="~/Styles/Style.css" />
+    <script src="~/Scripts/jquery-1.11.0.js"></script>
+    <script src="~/Scripts/script.js"></script>
+
+    <script src="~/Scripts/MIFjquery.js"></script>
+
+</head>
+<body>
+    <div class="wrapper user-profile">
+        <header color=#88888>
+
+            <div class="site-header">
+                <div class="site-title">
+                    <h1>E SCHOOL</h1>
+                </div>
+                <!-- .site-title -->
+                <div class="user-area">
+                   
+                    <img class="avatar" alt="Avatar" img src="~/Content/images/14.png" />
+
+                    <ul class="user-options">
+                        <li><a href="http://localhost:56448/Login/checkLogin">Log out</a></li>
+                       
+                        
+                    </ul>
+                    <!-- .user-options -->
+                </div>
+                <!-- .user-area -->
+            </div>
+            <!-- site-header -->
+        </header>
+        <!-- header -->
+       
+        <!-- .main -->
+
+        @RenderBody()
+        <hr />
+        
+        <footer>
+            <div class="site-footer" align="center">
+                <p><i>&copy; @DateTime.Now.Year - School management system</i></p>
+            </div>
+            <!-- .site-title -->
+            <!-- .site-footer -->
+        </footer>
+        <!-- footer -->
+    </div>
+    <!-- .wrapper -->
+</body>
+</html>

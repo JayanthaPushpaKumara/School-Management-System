@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "News_Confirm";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<body> 
+
+    <script language="javascript" type="text/javascript">
+
+        window.onload = function () {
+
+
+            var y = "@ViewBag.detailsid";
+
+            var x = 'http://localhost:56412/api/news/getnews/' + y;
+
+            var date , teacher_id, student_id , headline, description, st_name;
+
+
+            $.ajax({
+                url: x,
+                type: 'GET',
+
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+
+                    console.log(data);
+                    date = data.n_date;
+                    teacher_id = data.t_id;
+                    student_id  = data.st_id;
+                    headline  = data.headiline;
+                    description  = data.discription;
+                    st_name  = data.st_name;
+
+
+
+                },
+                error: function () {
+                    alert("data lode error");
+                }
+            });
+
+            document.getElementById("submit").onclick = function () {
+
+                var para = '?id=' + y +
+                    '&n_date=' + date +
+                    '&t_id= ' + teacher_id +
+                    '&st_id= ' + student_id +
+                    '&headiline= ' + headline +
+                    '&discription= ' + description +
+                   ' &isConfirm=yes' +
+                    '&st_name= ' + st_name;
+
+                
+
+                $.ajax({
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    type: 'GET',
+
+
+                    url: 'http://localhost:56412/api/news/Getnews' + para,
+
+
+                    success: function (data) {
+
+                        console.log(data);
+
+                    },
+                    error: function () {
+
+                    }
+
+
+
+                });
+            }
+
+
+        }
+    </script>
+
+
+
+    <h2>News Confirm</h2>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header"></h1>
+
+        </div>
+    </div>
+
+
+    <h2>Are you sure Coinfirm above news.. ??</h2>
+
+    <button type="button" class="btn btn-success" id="submit">Confirm</button>
+
+    <input type="button" class="btn btn-info" value="Cancel" onclick="location.href = 'http://localhost:56448/Teacher/News_view';" />
+
+</body>

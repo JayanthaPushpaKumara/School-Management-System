@@ -1,0 +1,147 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace Frontend.Controllers
+{
+    public class TeacherController : Controller
+    {
+        // GET: Teacher
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult subcode()
+        {
+            return View();
+        }
+        public ActionResult reqItem_delete(int id)
+        {
+            ViewBag.detailsid = id;
+            return View();
+        }
+
+        public ActionResult reqservice_delete(int id)
+        {
+            ViewBag.detailsid = id;
+            return View();
+        }
+
+
+
+        public ActionResult profile(int id)
+        {
+
+            ViewBag.detailsid = id;
+            return View();
+        }
+
+        public ActionResult News_View()
+        {
+            return View();
+        }
+
+        // GET: Teacher/Details/5
+        public ActionResult News_Confirm(int id)
+        {
+            ViewBag.detailsid = id;
+            return View();
+        }
+
+        public ActionResult News_Edit(int id)
+        {
+            ViewBag.detailsid = id;
+            return View();
+        }
+
+
+        // GET: Teacher/Details/5
+        public ActionResult reqItem_Confirm(int id)
+        {
+            ViewBag.detailsid = id;
+            return View();
+        }
+
+        // GET: Teacher/Details/5
+        public ActionResult reqService_Confirm(int id)
+        {
+            ViewBag.detailsid = id;
+            return View();
+        }
+
+        // GET: Teacher/Details/5
+        public ActionResult requirements()
+        {
+            return View();
+        }
+
+        // GET: Teacher/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Teacher/Create
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Teacher/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: Teacher/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Teacher/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: Teacher/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+    }
+}

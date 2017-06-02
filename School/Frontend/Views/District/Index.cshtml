@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<script language="javascript" type="text/javascript">
+
+        window.onload = function () {
+            document.getElementById('submit').onclick = function () {
+               // alert('hello!');
+
+                var x = 'http://localhost:56412/api/districts';
+                var dataJSON = { "district_id": $('#sid').val(), "district_name": $('#name').val() };
+
+                $.ajax({
+                    url: x,
+                    type: 'POST',
+                    data: JSON.stringify(dataJSON),
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+
+                    success: function (data) {
+
+                        console.log(data);
+                        alert("sucess");
+
+                    },
+                    error: function () {
+                        alert("error");
+                    }
+                });
+
+            };
+
+            document.getElementById("get").onclick = function () {
+
+                {
+                    var x = 'http://localhost:56412/api/districts';
+
+
+                    $.ajax({
+                        url: x,
+                        type: 'GET',
+
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+
+                        success: function (data) {
+
+                            console.log(data);
+                            alert(data[0].district_name);
+
+
+                        },
+                        error: function () {
+                            alert("error");
+                        }
+                    });
+                }
+
+            };
+            document.getElementById("delete").onclick = function () {
+
+                {
+                    var x = 'http://localhost:56412/api/districts/100';
+
+
+                    $.ajax({
+                        url: x,
+                        type: 'DELETE',
+
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+
+                        success: function (data) {
+
+                            alert(data);
+
+
+                        },
+                        error: function () {
+                            alert("error");
+                        }
+                    });
+                }
+
+            }
+
+        }
+    
+</script>
+
+
+
+
+<h2>Index</h2>
+
+<input id="sid" type="text" placeholder="ID" />
+<input id="name" type="text" placeholder="Dname" />
+
+@Html.DropDownList("pay",new List<SelectListItem>
+{
+    new SelectListItem {Text= "pay", Value= "1"},
+    new SelectListItem {Text= "Not pay", Value= "2"},
+
+
+},"Value")
+
+<a href="#" class="myButton" id="submit">Submit</a>
+
+<a href="#" class="myButton" id="get">getdistricts</a>
+
+<a href="#" class="myButton" id="delete">delete</a>
+

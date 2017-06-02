@@ -1,0 +1,184 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="~/Styles/style_news.css" rel="stylesheet" type="text/css" media="all" />
+    <title>News Add - Student Management System</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Carrois+Gothic+SC' rel='stylesheet' type='text/css'>
+
+
+    <script src="~/Scripts/MIFjquery.js"></script>
+
+    <script language="javascript" type="text/javascript">
+
+
+        window.onload = function () {
+
+            var currentdate = new Date();
+
+/*            var datetime2 = currentdate.getDate()             + "/"
+                            + (currentdate.getMonth() + 1)   + "/"
+                            + currentdate.getFullYear()      + " "
+                            + currentdate.getHours()         + ":"
+                            + currentdate.getMinutes()   + ":"
+                            + currentdate.getSeconds();                         */
+
+            var datetime =    currentdate.getFullYear()        + "/"
+                            + (currentdate.getMonth() + 1)       + "/"
+                            + currentdate.getDate() + " "
+                            + currentdate.getHours() + ":"
+                            + currentdate.getMinutes() + ":"
+                            + currentdate.getSeconds();
+
+
+            document.getElementById('date').innerHTML = datetime;
+            document.getElementById('date2').innerHTML = datetime;
+
+            document.getElementById("submit").onclick = function () {
+                //alert(datetime);
+                {
+
+                    var x = 'http://localhost:56412/api/news';
+                    var dataJSON = {
+
+                        "n_date": $('#date').val(),
+                        "t_id": $('#teacher_id').val(),
+                        "st_id": $('#student_id').val(),
+                        "headiline": $('#headline').val(),  // headiline ----> headline
+                        "discription": $('#description').val(),  //discription---> description
+                        "st_name": $('#st_name').val(),
+                        "isConfirm": "no"
+
+                    };
+                    alert("im in");
+
+                    $.ajax({
+                        url: x,
+                        type: 'POST',
+                        data: JSON.stringify(dataJSON),
+                        dataType: "json",
+                        contentType: 'application/json; charset=utf-8',
+
+                        success: function (data) {
+
+                            console.log(data);
+                            alert("sucess Data added");
+
+                            (function () {
+                                history.go(-1); return true;
+
+                            })();
+
+                           // window.location = "https://www.google.lk";
+
+                        },
+                        error: function () {
+                            alert("error");
+                        }
+                    });
+
+
+
+                }
+
+            }
+
+        }
+    </script>
+
+
+
+
+
+
+
+
+</head>
+<body>
+    <!-- Start-wrap -->
+    <!-- Start-Header-->
+
+
+    <div class="header-nav1">
+        <div class="wrap">
+
+            <div class="search-bar">
+                <ul>
+                    <li><input type="text"></li>
+                    <li><input type="submit" value="" /></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- End-Header-->
+        <div class="clear"> </div>
+        <!-- content-gallery-->
+    </div>
+    <div class="wrap">
+        <div style="border:none;" class="about">
+
+            <div class="contact-form">
+                <h4>ADD NEW NEWS</h4>
+                <form>
+                    <div>
+                        <span><label id="date2"></label></span>
+                    </div>
+                    <div style="display:none">
+                        <span ><textarea id="date"> </textarea></span>
+                    </div>
+                    <div>
+                        <span><label></label></span>
+                    </div>
+                    <div>
+                        <span><label>name</label></span>
+                        <span><input id="st_name" type="text"  /></span>
+                    </div>
+                    <div>
+                        <span><label>headline</label></span>
+                        <span><input id="headline" type="text"  placeholder="below 100 characters"/></span>
+                    </div>
+                    <div>
+                        <span><label>description </label></span>
+                        <span><textarea id="description"> </textarea></span>
+                    </div>
+
+                    <div>
+                        <span><label>Temporary Data</label></span>
+                        <span><input id="teacher_id" type="text" placeholder="teacher_id" /></span>
+                        <span><input id="student_id" type="text" placeholder="student_id" /></span>
+                    </div>
+
+                    <div>
+                        <a href="#" class="myButton" id="submit">Submit</a>
+                        <span><input id="submit" type="submit" value="Submit"></span>
+                    </div>
+                </form>
+
+            </div>
+
+            <!-- DC Pagination:C9 End -->
+        </div>
+    </div>
+
+    <div class="clear"> </div>
+    <!-- End-content-gallery-->
+    <!-- DC Pagination:C9 Start -->
+    <div class="wrap">
+
+    </div><br><br>
+    <div class="clear"> </div>
+
+    <div class="footer1">
+        <p class="link"><span>© All rights Reserved | Designed by&nbsp; <a href="http://w3layouts.com/"> W3Layouts</a>	</span></p>
+    </div>
+    <!-- End-wrap -->
+
+</body>
+</html>
+

@@ -1,0 +1,177 @@
+﻿
+
+<!--PRINCIPAL INDEX-->
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        small {
+            float: right;
+            margin: 0 0 10px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="loadingpic" src="~/Content/images/gif/default (1).gif" style="position:absolute; left:800px;top:0px;right:0px; bottom:0px;  margin:auto; z-index:100000" />
+
+    <script language="javascript" type="text/javascript">
+
+
+
+
+
+
+        window.onload = function () {
+            var JObject = JSON.parse(localStorage.getItem("user"));
+
+
+            if (JObject != undefined) {
+                document.getElementById("myProfileShow").innerHTML = JObject[1].fname;
+                //       $("#myProfileShow").html(user.email);
+            }
+
+            $('#clear').click(function () {
+                window.localStorage.clear();
+            });
+
+
+
+            var x = 'http://localhost:56412/api/news';
+            var id;
+
+            var count=0;
+                var a = 1;
+                $.ajax({
+                    url: x,
+                    type: 'GET',
+
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+
+                    success: function (data) {
+
+                       // alert(data.length);
+                        console.log(data);
+                        data.reverse();
+                        loop(data);
+
+
+
+                    },
+                    error: function () {
+                        alert("error");
+                    }
+                });
+
+        }
+
+        $(document).ready(function () {
+
+            $("#loadingpic").fadeOut(4000); background
+
+        });
+
+
+        function loop(x) {
+            var cont = 0;
+            loop1:
+                for (var a = 0; a < x.length; a++) {
+
+                    if (x[a].isConfirm == 'yes') {
+
+                        document.getElementById('cont').innerHTML += '<div class="widget"> <h4><img src="http://localhost:56448/Content/images/pointer.png" /> <a href="http://localhost:56448/Student/News_ReadMore/' + x[a].n_id + '">' + x[a].headiline + '</a></h4></div>';
+                        cont++;
+                        if (cont == 6) {
+                            break loop1;
+                        }
+
+                    }
+                }
+
+        }
+
+
+    </script>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Welcome
+                <small id="myProfileShow">user email</small>
+                <small><a id="clear" href="http://localhost:56448/Login/checkLogin"> Logout </a></small>
+            </h1>
+            
+</div>
+    </div>
+
+
+
+
+    <!-- Team Members Row -->
+    <div class="row">
+
+        <div class="col-lg-9">
+            <div class="col-lg-4 col-sm-4 text-center">
+                <a href="http://localhost:56448/Principal/profile/1">
+                    <img class="img-circle img-responsive img-center" img src="~/Content/images/15.jpg" onmouseover="this.src='/Content/images/15blur.jpg'" onmouseout="this.src='/Content/images/15.jpg'" alt="">
+                </a>
+                <h3>
+                    My Profile
+                </h3>
+            </div>
+
+
+            <div class="col-lg-4 col-sm-4 text-center">
+                <a href="http://localhost:56448/Principal/News_View">
+                    <img class="img-circle img-responsive img-center" src="~/Content/images/12.jpg" onmouseover="this.src='/Content/images/12blur.jpg'" onmouseout="this.src='/Content/images/12.jpg'" alt="">
+                </a>
+                <h3>
+                    News
+
+                </h3>
+
+            </div>
+
+            <div class="col-lg-4 col-sm-4 text-center">
+                <a href="http://localhost:56448/teacherLogin/Index">
+                    <img class="img-circle img-responsive img-center" src="~/Content/images/16.jpg" onmouseover="this.src='/Content/images/16blur.jpg'" onmouseout="this.src='/Content/images/16.jpg'" alt="">
+                </a>
+                <h3>
+                Create Teachers'<br> Account
+
+                </h3>
+
+            </div>
+
+            <div class="col-lg-4 col-sm-4 text-center">
+                <a href="http://localhost:56448/Teacher/subcode">
+                    <img class="img-circle img-responsive img-center" src="~/Content/images/100.jpg" onmouseover="this.src='/Content/images/100blur.jpg'" onmouseout="this.src='/Content/images/100.jpg'" alt="">
+                </a>
+                <h3>
+                    Assign Subject code
+
+                </h3>
+
+            </div>
+            
+            
+        </div>
+        <div class="col-lg-3" style="border-style: ridge;border-width: 0px 0px 0px 1px;">
+            <p> <h1><b><u><a href="http://localhost:56448/Principal/News_view">Breacking news </a></u></b> </h1></p>
+            <div id="cont">
+                <!-- inner html id cont  call by script -->
+            </div>
+        </div>
+    </div>
+    <hr>
+</body>
+</html>
+

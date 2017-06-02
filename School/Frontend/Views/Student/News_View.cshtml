@@ -1,0 +1,197 @@
+﻿<!--STUDENT NEWS VIEW-->
+
+
+@{
+    ViewBag.Title = "Student News View";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+ <img id="loadingpic"  src="~/Content/images/gif/default.gif"   style="position:absolute; left:0px;top:0px;right:0px; bottom:0px;  margin:auto; z-index:100000" />
+     
+    
+
+    <script language="javascript" type="text/javascript">
+
+        var stId = 10;  // sandungen
+
+        function loadData() {
+            var x = 'http://localhost:56412/api/news';
+
+            //var x = 'https://cyclonewebapi.azurewebsites.net/api/news';
+
+            jQuery.ajax({
+                url: x,
+                type: 'GET',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+
+                    console.log(data);
+                    data.reverse();
+                    loop(data);
+
+
+
+                },
+                error: function () {
+                   // alert("error");
+                }
+            });
+
+
+        }
+
+        setInterval(loadData, 5000);
+
+        
+
+        $(document).ready(function () {
+            loadData();
+            $("#loadingpic").fadeOut(1500); background
+            //$("footer1").css("display", "initial");
+        }); 
+
+
+
+        function loop(x) {
+
+            document.getElementById('cont').innerHTML = '';
+
+            for (var a = 0; a < x.length; a++) {
+
+                var str = x[a].discription;
+                if (str.length > 500) str = str.substring(0, 500);
+
+                var id = x[a].n_id;
+
+                //console.log(jQuery("cont #abc-" + id).size());
+
+                if (x[a].isConfirm == 'yes' && x[a].st_id != stId) {
+
+                    document.getElementById('cont').innerHTML += '<div class="blog-img"> <img src=" '+x[a].img +'"/>  </div> <div class="bloger-content">  <h5><a href="http://localhost:56448/Student/News_ReadMore/' + id + '">' + x[a].headiline + '</a></h5>     <p>' + str + '....</p> <ul> <li><a href="http://localhost:56448/Student/profile/' + x[a].st_id + '">' + x[a].st_name + '</a></li>  <li><a href="#">: ' + x[a].n_date + '</a></li>   <li><a href="http://localhost:56448/Student/News_ReadMore/' + id + '"><span>Readmore</span></a></li> </ul> </div>   <div class="clear"> </div>';
+
+                }
+                if (x[a].st_id == stId) {
+
+
+                    document.getElementById('cont').innerHTML += '<div class="blog-img"> <img src=" ' + x[a].img + '" />  </div> <div class="bloger-content">  <h5><a href="http://localhost:56448/Student/News_ReadMore/' + id + '">' + x[a].headiline + '</a></h5>     <p>' + str + '....</p> <ul> <li><a href="http://localhost:56448/Student/profile/' + x[a].st_id + '">' + x[a].st_name + '</a></li>  <li><a href="#">: ' + x[a].n_date + '</a></li>   <li><a href="http://localhost:56448/Student/News_ReadMore/' + id + '"><span>Readmore</span></a> <hr/> <a href="http://localhost:56448/Student/News_Edit/' + id + '"><span>Edit</span></a> <hr/> <button onclick="delNews(' + id + ')" class="btn btn-success">Delete </button> </li> </ul> </div>   <div class="clear"> </div>';
+
+                }
+
+            }
+        }
+
+
+        function delNews(id) {
+
+            var result = confirm("Want to delete?");
+            if (result) {
+
+                var x = 'http://localhost:56412/api/news/Delnews/' + id;
+
+
+                $.ajax({
+                    url: x,
+                    type: 'GET',
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+
+                    success: function (data) {
+
+                        console.log(data);
+
+
+                    },
+
+                    error: function () {
+                        alert("data deleted unsuccessful");
+
+                    }
+                });
+            }
+        }
+
+
+
+    </script>
+
+
+
+
+
+    <div class="header-nav1">
+        <div class="wrap">
+            <div class="search-bar">
+               
+            </div>
+        </div>
+
+        <!-- End-Header-->
+        <div class="clear"> </div>
+        <!-- content-gallery-->
+    </div>
+    <div class="wrap">
+        <div class="about">
+            <div class="bloder-content">
+                <div class="services-sidebar">
+                    <h4>Add news</h4>
+
+                    <ul>
+
+                        <li><a href="#"><img src="~/Content/images/pointer.png" title="pointer" />you can add new news here <br /> But After your teacher confirm your news it may be publish<br /> You can update or delete your News.. <br /> <br /><img src="~/Content/images/pointer.png" title="pointer" />TEACHER AND PRINCIPAL NOT NESSARY CONFIRM</a></li>
+                        <li><a href="http://localhost:56448/Student/News_Add"><input type="button" value="Click hear" class="btn btn-warning"/></a></li>
+
+                    </ul>
+                    <br>
+
+
+                    <h4>categorize</h4>
+                    <ul>
+                        <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Sport</a></li>
+                        <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Union</a></li>
+                        <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">club</a></li>
+                        <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Meeting</a></li>
+                        <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Society</a></li>
+                        <li><img src="~/Content/images/pointer.png" title="pointer" /><a href="#">Others</a></li>
+                    </ul><br>
+                    
+                </div>
+                <!--<div class="bloder-content">  -->
+
+                <div class="bloger-grid" id="cont">
+
+
+                </div>
+
+
+
+            </div>
+
+            <div class="clear"> </div>
+
+        </div>
+    </div>
+
+    <div class="clear"> </div>
+    <!-- End-content-gallery-->
+    <!-- DC Pagination:C9 Start -->
+    <div class="wrap">
+        <!-- DC Pagination:A3 Start -->
+        <ul class="dc_pagination dc_paginationA dc_paginationA03">
+            <li><a href="#" class="first">First</a></li>
+            <li><a href="#" class="previous">Previous</a></li>
+            <li><a href="#" class="current">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#" class="next">Next</a></li>
+            <li><a href="#" class="last">Last</a></li>
+
+        </ul>
+        <!-- DC Pagination:A3 End -->
+
+        <div class="clear"> </div>
+
+        <!-- DC Pagination:C9 End -->
+    </div>

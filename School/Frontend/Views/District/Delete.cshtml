@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Delete</h2>
+<script language="javascript" type="text/javascript">
+
+    window.onload = function () {
+
+        document.getElementById('delete').onclick = function () {
+
+
+            var x = 'http://localhost:56412/api/districts/1';
+
+
+                $.ajax({
+                    url: x,
+                    type: 'DELETE',
+
+                    success: function (data) {
+                        console.log(data);
+                        alert("sucess");
+                    },
+                    error: function (data) {
+                        alert("sucess");
+                    }
+                });
+
+
+
+        }
+    }
+
+</script>
+
+
+
+
+
+<a href="#" class="myButton" id="delete">delete</a>

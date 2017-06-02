@@ -1,0 +1,188 @@
+﻿@{
+    ViewBag.Title = "index";
+}
+
+
+<script language="javascript" type="text/javascript">
+    var dataArray = [];
+    var b = 0;
+    var w;
+    window.onload = function () {
+
+        var JObject = JSON.parse(localStorage.getItem("user"));
+        if (JObject != undefined) {
+            w = JObject[1].tid;
+        }
+
+
+
+
+        var x = 'http://localhost:56412/api/students';
+
+
+        $.ajax({
+            url: x,
+            type: 'GET',
+
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+
+            success: function (data) {
+
+                console.log(data);
+                loop(data)
+
+
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+
+
+        function loop(x) {
+
+            for (var a = 0; a < x.length; a++) {
+                if (x[a].t_id == w) {
+                    document.getElementById('row').innerHTML += '<tr> <th><div id="st_id' + b + '">' + x[a].stid + '</div></th><th><input type ="radio" id="state' + b + '" name="state' + b + '" value="present"/>present<br><input type="radio" id="state' + b + '" name="state' + b + '" value="absent"/>absent</th></tr>';
+                    b++;
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        document.getElementById('submit').onclick = function () {
+            // alert('hello!');
+
+            var y = 'http://localhost:56412/api/attendances';
+            // var dataJSON = { "st_id": $('#sid').val(), "date": $('#date').val() };
+
+
+
+            for (var a = 0; a < b; a++) {
+
+                var jsonObject = { "st_id": $('#st_id' + a).html(), "date": $('#date').val(), "state": $('#state' + a).val() };
+                dataArray.push(jsonObject);
+            }
+
+            for (a = 0; a < b; a++) {
+                var dataJSON = dataArray[a];
+
+               // console.log(dataArray);
+                $.ajax({
+                    url: y,
+                    type: 'POST',
+                    data: JSON.stringify(dataJSON),
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+
+                    success: function (data) {
+
+                        console.log(data);
+                       alert("sucess");
+
+                    },
+                    error: function (data) {
+                        alert("error");
+                    }
+                });
+
+
+            };
+
+           
+
+        }
+      
+
+    }
+
+
+
+</script>
+
+
+
+<body>
+    <form style="height:610px">
+        <div class="wrapper user-profile">
+
+
+            <div class="main clearfix">
+                <div class="content">
+
+                    <div class="post edit-company">
+                        <div class="post-header">
+                            <h2>Attendance</h2>
+                            &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp
+                            &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp
+                            &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp
+                            &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp
+                            &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp  &nbsp
+                            <input id="date" required placeholder="date" type="date" />
+                        </div>
+
+                        <ul>
+                            <li class="settings-field">
+
+
+                                <table>
+                                    <tr>
+                                        <th>Index Number</th>
+                                        <th>
+                                            status
+                                        </th>
+                                    </tr>
+
+
+                                    <tbody id="row"></tbody>
+                                </table>
+
+                            </li>
+
+                        </ul>
+                    </div>
+                    <a href="#" class="myButton" id="submit">Submit</a>
+
+                    <!-- <button style="width:75px;height:20px;background-color:lightblue" id="submit"> Mark </button> -->
+
+
+                </div>
+
+                <aside class="sidebar">
+                    <br /><br /><br /><br /><br /><br />
+
+
+                    <div class="widget">
+                        <h3>Note</h3>
+                        <p>Mark the correct attendance.. remind date is required</p>
+                    </div>
+
+                </aside>
+
+            </div>
+
+
+        </div>
+    </form>
+</body>

@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewBag.Title = "Edit_Sport";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+
+<script language="javascript" type="text/javascript">
+
+    var y = "@ViewBag.detailsid";
+
+    window.onload = function () {
+
+
+        //var x = 'https://cyclonewebapi.azurewebsites.net/api/sport_event/GetSport_event/' + y;
+        var x = 'http://localhost:56412/api/sport_event/GetSport_event/' + y;
+
+        $.ajax({
+            url: x,
+            type: 'GET',
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+
+            success: function (data) {
+                console.log(data);
+                document.getElementById('sportname').innerHTML = data.sp_name;
+                document.getElementById('event').innerHTML = data.sp_event;
+                document.getElementById('place').innerHTML = data.place;
+                document.getElementById('recode').innerHTML = data.recode;
+                document.getElementById('ranks').innerHTML = data.ranks;
+                document.getElementById('description').innerHTML = data.sp_description;
+
+
+            },
+            error: function () {
+                alert("error onlode function");
+            }
+        });
+
+
+        document.getElementById('submit').onclick = function () {
+
+
+
+            var para = '?id=' + y + '&sp_name=' + $('#sportname').val() + '&sp_event= ' + $('#event').val() + '&place= ' + $('#place').val() + '&recode= ' + $('#recode').val() + '&ranks= ' + $('#ranks').val() + '&sp_description= ' + $('#description').val();
+
+
+            $.ajax({
+                url: 'http://localhost:56412/api/sport_event/Getsport_event' + para,
+                type: 'GET',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+
+                success: function (data) {
+
+                    console.log(data);
+
+                    (function () {
+                        history.go(-1); return true;
+
+                    })();
+
+                },
+                error: function () {
+                    alert("error edit function");
+                }
+            });
+
+        };
+
+    }
+
+</script>
+
+
+
+
+<div class="header-nav1">
+    <div class="wrap">
+
+        <div class="search-bar">
+            
+        </div>
+    </div>
+
+    <!-- End-Header-->
+    <div class="clear"> </div>
+    <!-- content-gallery-->
+</div>
+<div class="wrap">
+    <div style="border:none;" class="about">
+
+        <div class="contact-form">
+            <h4>EDITE MY SPORT EVENT</h4>
+            <form>
+                <div>
+                    <span><label>sportname</label></span>
+                    <span><textarea id="sportname" style="height:auto; width:98%"> </textarea></span>
+                </div>
+                <div>
+                    <span><label>event</label></span>
+                    <span><textarea id="event" style="height:auto; width:98%"> </textarea></span>
+                </div>
+                <div>
+                    <span><label>place </label></span>
+                    <span><textarea id="place" style="height:auto; width:98%"> </textarea></span>
+                </div>
+                <div>
+                    <span><label>recode</label></span>
+                    <span><textarea id="recode" style="height:auto; width:98%"> </textarea></span>
+                </div>
+                <div>
+                    <span><label>rank</label></span>
+                    <span><textarea id="ranks" style="height:auto; width:98%"> </textarea></span>
+                </div>
+                <div>
+                    <span><label>description </label></span>
+                    <span><textarea id="description"> </textarea></span>
+                </div>
+
+
+                <div>
+                    <input type="button" class="btn btn-warning"  value="Save" id="submit"/>
+                    <!--<a href="#" class="myButton" id="submit">.</a> 
+                    <span><input id="submit" type="submit" value="Submit"></span>       -->
+                </div>
+            </form>
+
+        </div>
+
+        <!-- DC Pagination:C9 End -->
+    </div>
+</div>
+
+<div class="clear"> </div>
+<!-- End-content-gallery-->
+<!-- DC Pagination:C9 Start -->
+<div class="wrap">
+
+</div><br><br>
